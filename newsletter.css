@@ -1,15 +1,15 @@
 /* Font faces */
 @font-face {
     font-family: "myfont_2";
-    src: url("../Associated_files/BernhardModernStd-Roman.woff") format('woff');
+    src: url("./Associated_files/BernhardModernStd-Roman.woff") format('woff');
 }
 
 @font-face {
     font-family: "myfont";
-    src: url("../Associated_files/cheops\ elegant\ regular.ttf") format('woff');
+    src: url("./Associated_files/cheops\ elegant\ regular.ttf") format('woff');
 }
 
-/* Header styling more d */
+/* Header styling */
 #name {
     font-family: myfont;
     font-size: 70px;
