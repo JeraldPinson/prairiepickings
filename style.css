@@ -9,10 +9,14 @@
     src: url("./Associated_files/cheops elegant regular.ttf") format('woff');
 }
 
+body {
+    background-color: #fcf6f0 !important;
+}
+
 /* Header styling */
 #name {
     font-family: myfont;
-    font-size: 70px;
+    font-size: 9vw;
     display: flex;
     justify-content: center;
     text-align: center;
@@ -22,7 +26,7 @@
 
 #sub_header {
     font-family: myfont;
-    font-size: 20px;
+    font-size: 2.5vw;
     font-style: italic;
     display: flex;
     justify-content: center;
@@ -113,10 +117,10 @@
 /* Additional styling for borders and the menu */
 #page_links ul {
     list-style: none;
-    width: 100%;
+    width: 76%;
     margin-left: 0;
     padding: 0;
-    font-family: myfont_2;
+    font-family: body_font;
     font-size: 21px;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
@@ -125,5 +129,7 @@
 /* Footer image */
 #footer_image {
     display: flex;
-    width: 100%;
+    margin: 0 auto;
+    width: 80%;
+    justify-content: center;
 }

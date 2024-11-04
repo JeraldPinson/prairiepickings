@@ -1,0 +1,232 @@
+/* Font faces */
+@font-face {
+    font-family: "myfont_2";
+    src: url("./Associated_files/BernhardModernStd-Roman.woff") format('woff');
+}
+
+@font-face {
+    font-family: "myfont";
+    src: url("./Associated_files/cheops elegant regular.ttf") format('woff');
+}
+
+@font-face {
+    font-family: "body_font";
+    src: url("./Associated_files/spectral/Spectral-Light.ttf") format('woff');
+}
+
+body {
+    background-color: #fbf5ef !important;
+}
+
+.newsreader-font {
+  font-family: "Newsreader", serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+
+/* Header styling */
+#name {
+    font-family: myfont;
+    font-size: 6vw;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-top: 30px;
+    color: #874537;
+}
+
+#sub_header {
+    font-family: myfont;
+    font-size: 2vw;
+    font-style: italic;
+    display: flex;
+    justify-content: center;
+}
+
+/* Page links styling */
+#page_links {
+    text-align: center;
+}
+
+#page_links a { 
+    color: #000000; 
+    display: inline-block; 
+    padding: 0.5em; 
+    text-decoration: none; /* Fix transparent text decoration */
+}
+
+#page_links a:hover { 
+    color: #874537;
+    text-decoration: underline;
+}
+
+/* List items in page links */
+#page_links li {
+    display: inline-block; 
+    margin: 0 calc(6vw);
+    justify-content: center;
+}
+
+/* Hamburger menu styling */
+.hamburger {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 10px;
+    text-align: right;
+}
+
+/* Mobile view (max-width: 768px) */
+@media (max-width: 768px) {
+    /* Center the hamburger icon */
+    #page_links {
+        display: flex;
+        justify-content: center; /* Horizontally center */
+        align-items: center;     /* Vertically center if needed */
+        height: 100px;           /* Set a height for the container if needed */
+    }
+
+    .hamburger {
+        display: block; /* Show the hamburger icon on small screens */
+    }
+
+    .hamburger-icon {
+        width: 60px; /* Adjust the size of the hamburger icon */
+        cursor: pointer;
+    }
+
+    ul {
+        display: none; /* Hide the menu initially */
+    }
+
+    ul li {
+        display: block; /* Display list items vertically */
+        margin: 10px 0;
+    }
+}
+
+/* Desktop view (min-width: 768px) */
+@media (min-width: 768px) {
+    .hamburger {
+        display: none; /* Hide the hamburger icon on large screens */
+    }
+
+    ul {
+        display: inline-block; /* Show the menu on large screens */
+    }
+
+    ul li {
+        display: inline-block; /* List items inline on large screens */
+        margin: 0 20px;
+    }
+
+    #nav-toggle {
+        display: none; /* Hide the checkbox */
+    }
+}
+
+#page_links ul {
+    list-style: none;
+    width: 100%;
+    margin-left: 0;
+    padding: 0;
+    font-family: body_font;
+    font-size: 21px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+/* Article Section */
+.article-section {
+    text-align: center; /* Center the entire article section */
+}
+
+/* Title and Subtitle Alignment */
+.article-title, .article-subtitle {
+    text-align: left;   /* Align both title and subtitle to the left */
+    margin-left: auto;   /* Same left indent for both */
+    margin-right: auto;
+    width: 60%;
+}
+
+/* Title Styling */
+.article-title {
+    font-family: myfont;  /* Cheops Elegant font */
+    font-size: 4rem;      /* Large font size */
+    margin-bottom: 10px;  /* Space between title and subtitle */
+}
+
+/* Subtitle Styling */
+.article-subtitle {
+    font-family: body_font;  /* Subtitle font */
+    font-weight: 200;             /* Regular weight */
+    font-size: 1.5rem;              /* Half the size of the title */
+    margin-top: 0;
+    margin-bottom: 20px;          /* Space below the subtitle */
+}
+
+/* Article Body */
+.article-body {
+    font-family: body_font;
+    font-size: 1.5rem;    /* Body text size */
+    /*font-weight: 200;*/
+    width: 45%;           /* Text takes up 45% of the screen */
+    margin: 0 auto;       /* Center the body content */
+    text-align: left;     /* Align the text inside the article body to the left */
+}
+
+/* Header Image */
+.header_image {
+    display: flex;
+    margin: 1vh;
+    justify-content: center;
+}
+
+.header_image img {
+    max-width: 65%;
+    height: auto;
+    display: block;
+}
+
+.article-body p {
+    margin-bottom: 20px; /* Add some space between paragraphs */
+    align-content: left;
+}
+
+.subheading_one {
+    font-family: body_font;
+    font-size: 2rem;     /* Adjust the size as needed */
+    font-weight: bold;   /* Make the text bold */
+    text-align: left;    /* Align it to the left if required */
+    margin: 20px 0;      /* Add some margin for spacing */
+}
+
+.images {
+    position: relative;
+    max-width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 4%;
+    padding-bottom: 4%;
+}
+
+.text-image-wrapper {
+    float: right; /* Float the wrapper to the right */
+    width: 60%; /* Set the wrapper's width */
+    margin-left: 20px; /* Add space between the wrapper and text */
+    margin-bottom: 20px; /* Space below the wrapper */
+    display: block;
+}
+
+.image_2 {
+    width: 100%; /* Make the image take the full width of the wrapper */
+    display: block;
+}
+
+.image-caption {
+    text-align: left; /* Align the caption to the left */
+    font-size: 0.9rem; /* Adjust the font size */
+    margin-top: 5px; /* Space between the image and caption */
+    color: #555; /* Optional color adjustment */
+}
