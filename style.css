@@ -190,11 +190,11 @@ body {
 }
 
 .hover-area-2:hover ~ .header-image {
-    content: url("./Associated_files/hover-image-2.png") !important;
+    content: url("./Associated_files/IMG_2373_4.png") !important;
 }
 
 .hover-area-3:hover ~ .header-image {
-    content: url("./Associated_files/hover-image-3.png") !important;
+    content: url("./Associated_files/IMG_2373_5.png") !important;
 }
 
 /* Hover effect: Outline-only boxes */
@@ -236,14 +236,35 @@ body {
     margin-bottom: 20vw;
 }
 
-#recent-stories h2::before,
 #recent-stories h2::after {
     content: "";
     position: absolute;
     top: 50%; /* Center the line vertically */
-    width: 35%; /* Adjust width as needed */
-    height: 1px; /* Matches the thickness of the page links list */
-    background-color: black;
+    width: 35%; /* Matches intended width */
+    height: 4px; /* Matches the thickness of the page links list */
+    background: linear-gradient(
+        to right,
+        #a9b6bf 8%, #c6d57e 8% 16%, #046582 16% 24%, #bfb051 24% 32%,
+        #b97a95 32% 40%, #9cafaa 40% 48%, #ff7878 48% 56%, #ac9784 56% 64%,
+        #e2afac 64% 72%, #f1a979 72% 80%, #7eacb5 80% 88%, #ff7878 88% 96%, #f1a979 96% 100% 
+    );
+    z-index: -1; /* Places the line behind the text */
+}
+
+#recent-stories h2::before {
+    content: "";
+    position: absolute;
+    top: 50%; /* Center the line vertically */
+    width: 35%; /* Matches intended width */
+    height: 4px; /* Matches the thickness of the page links list */
+    background: linear-gradient(
+        to right,
+        #f1ca89 5%, #7eacb5 5% 10%, #b97a95 10% 15%, #678a74 15% 20%,
+        #e2afac 20% 25%, #9cafaa 25% 30%, #046582 30% 35%, #dac0a6 35% 40%,
+        #ff7878 40% 45%, #bfb051 45% 50%, #c6d57e 50% 55%, #a9b6bf 55% 60%,
+        #ac9784 60% 65%, #d0d5bf 65% 70%, #f1a979 70% 75%, #ff7878 75% 80%, #9cafaa 88% 96%, #b97a95 96% 100% 
+    );
+    z-index: -1; /* Places the line behind the text */
 }
 
 #recent-stories h2::before {
@@ -253,6 +274,7 @@ body {
 #recent-stories h2::after {
     right: 0;
 }
+
 
 #recent-stories h2::before {
     content: "";
@@ -260,7 +282,7 @@ body {
     top: 50%; /* Center the bar vertically */
     left: 0;
     right: 0;
-    height: 1px; /* Matches the thickness of the page links list */
+    height: 4px; /* Matches the thickness of the page links list */
     background-color: black;
     z-index: -1; /* Places the line behind the text */
 }

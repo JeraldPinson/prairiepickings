@@ -1,4 +1,8 @@
-/* Font faces */
+@font-face {
+    font-family: "myfont_3";
+    src: url("./Associated_files/Fox-Geometric-Font/Fonts/fox.ttf") format('woff');
+}
+
 @font-face {
     font-family: "myfont_2";
     src: url("./Associated_files/BernhardModernStd-Roman.woff") format('woff');
@@ -9,26 +13,15 @@
     src: url("./Associated_files/cheops elegant regular.ttf") format('woff');
 }
 
-@font-face {
-    font-family: "body_font";
-    src: url("./Associated_files/spectral/Spectral-Light.ttf") format('woff');
-}
 
 body {
-    background-color: #fbf5ef !important;
-}
-
-.newsreader-font {
-  font-family: "Newsreader", serif;
-  font-optical-sizing: auto;
-  font-weight: 200;
-  font-style: normal;
+    background-color: #fcf6f0 !important;
 }
 
 /* Header styling */
 #name {
     font-family: myfont;
-    font-size: 6vw;
+    font-size: 8vw;
     display: flex;
     justify-content: center;
     text-align: center;
@@ -42,30 +35,13 @@ body {
     font-style: italic;
     display: flex;
     justify-content: center;
+    padding-bottom: 2lh;
 }
 
-/* Page links styling */
-#page_links {
-    text-align: center;
-}
-
-#page_links a { 
-    color: #000000; 
-    display: inline-block; 
-    padding: 0.5em; 
-    text-decoration: none; /* Fix transparent text decoration */
-}
-
-#page_links a:hover { 
-    color: #874537;
-    text-decoration: underline;
-}
-
-/* List items in page links */
-#page_links li {
-    display: inline-block; 
-    margin: 0 calc(6vw);
-    justify-content: center;
+.header-container {
+    display: flex;
+    justify-content: center; /* Centers #page_links within the container */
+    width: 100%; /* Full width to center content */
 }
 
 /* Hamburger menu styling */
@@ -79,12 +55,11 @@ body {
 
 /* Mobile view (max-width: 768px) */
 @media (max-width: 768px) {
-    /* Center the hamburger icon */
     #page_links {
         display: flex;
         justify-content: center; /* Horizontally center */
-        align-items: center;     /* Vertically center if needed */
-        height: 100px;           /* Set a height for the container if needed */
+        align-items: center; /* Vertically center if needed */
+        height: 100px; /* Set a height for the container if needed */
     }
 
     .hamburger {
@@ -126,15 +101,109 @@ body {
     }
 }
 
-#page_links ul {
-    list-style: none;
-    width: 76%;
-    margin-left: 0;
-    padding: 0;
-    font-family: body_font;
-    font-size: 21px;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+#page_links {
+    /* padding: 80px; */
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: center; /* Centers the image */
+    align-items: center; /* Centers the content vertically */
+    width: calc(100%-20px);
+    height: auto; /* Adjust height to fit the image */
+    overflow: hidden;
+}
+
+.background-stripe {
+    position: absolute;
+    top: 50%; /* Centered vertically */
+    transform: translateY(-50%);
+    width: 100%;
+    height: 10px; /* Maintain the original stripe thickness */
+    background: linear-gradient(
+        to right,
+        #a9b6bf 2%, #c6d57e 2% 4%, #046582 4% 6%, #bfb051 6% 8%,
+        #b97a95 8% 10%, #9cafaa 10% 12%, #ff7878 12% 14%, #ac9784 14% 16%,
+        #e2afac 16% 18%, #f1a979 18% 20%, #7eacb5 20% 22%, #d0d5bf 22% 24%,
+        #678a74 24% 26%, #ff7878 26% 28%, #f1ca89 28% 30%, #9eb093 30% 32%,
+        #dac0a6 32% 34%, #6c7188 34% 36%, #9cafaa 36% 38%, #b97a95 38% 40%,
+        #d0d5bf 40% 42%, #7eacb5 42% 44%, #046582 44% 46%, #9cafaa 46% 48%,
+        #c6d57e 48% 50%, #f1a979 50% 52%, #a9b6bf 52% 54%, #ff7878 54% 56%,
+        #678a74 56% 58%, #dac0a6 58% 60%, #b97a95 60% 62%, #9cafaa 62% 64%,
+        #f1ca89 64% 66%, #046582 66% 68%, #7eacb5 68% 70%, #a9b6bf 70% 72%,
+        #e2afac 72% 74%, #c6d57e 74% 76%, #b97a95 76% 78%, #ff7878 78% 80%,
+        #d0d5bf 80% 82%, #f1a979 82% 84%, #9cafaa 84% 86%, #e2afac 86% 88%,
+        #f1ca89 88% 90%, #c6d57e 90% 92%, #046582 92% 94%, #6c7188 94% 96%,
+        #a9b6bf 96% 98%, #9eb093 98% 100%
+    );
+    z-index: 1; /* Below the image */
+}
+
+.header-image {
+    position: relative;
+    z-index: 2; /* Above the background stripe */
+    max-width: 100%; /* Ensure it doesn’t overflow */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.hover-container {
+    position: relative;
+    width: 100%; /* Match the width of #page_links */
+    height: 100%; /* Match the height of the container */
+    z-index: 3; /* Ensure it’s above other elements */
+}
+
+.hover-area {
+    position: absolute; /* Position relative to #page_links */
+    top: 0;
+    height: 100%; /* Full height of the container */
+    cursor: pointer;
+    background: transparent; /* Invisible by default */
+    z-index: 4; /* Ensure it’s above other elements */
+}
+
+/* Define the boundaries */
+.hover-area-1 {
+    left: 0;
+    width: 33.33%; /* First third */
+}
+
+.hover-area-2 {
+    left: 33.33%;
+    width: 33.33%; /* Middle third */
+}
+
+.hover-area-3 {
+    left: 66.66%;
+    width: 33.33%; /* Last third */
+}
+
+#page_links img,
+#page_links .hover-area {
+    margin: 0 auto;
+}
+/* Debugging: Make hover areas visible */
+
+
+.hover-area-1:hover ~ .header-image {
+    content: url("./Associated_files/IMG_2373_3.png") !important;
+}
+
+.hover-area-2:hover ~ .header-image {
+    content: url("./Associated_files/IMG_2373_4.png") !important;
+}
+
+.hover-area-3:hover ~ .header-image {
+    content: url("./Associated_files/IMG_2373_5.png") !important;
+}
+
+/* Hover effect: Outline-only boxes */
+.hover-area:hover ~ .background-stripe {
+    background: repeating-linear-gradient(
+        to right,
+        black 0, black 1px, transparent 1px, transparent 2% /* Outline-only pattern */
+    );
+    height: 10px; /* Maintain height */
+    border: 1px solid black; /* Add an overall black border */
 }
 
 /* Article Section */
@@ -181,6 +250,7 @@ body {
     display: flex;
     margin: 1vh;
     justify-content: center;
+    padding-top: 2.5lh;
 }
 
 .header_image img {
