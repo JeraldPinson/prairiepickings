@@ -1,0 +1,314 @@
+/* Font faces */
+@font-face {
+    font-family: "myfont_3";
+    src: url("/Associated_files/Fox-Geometric-Font/Fonts/fox.ttf") format('woff');
+}
+
+@font-face {
+    font-family: "myfont_2";
+    src: url("/Associated_files/BernhardModernStd-Roman.woff") format('woff');
+}
+
+@font-face {
+    font-family: "myfont";
+    src: url("/Associated_files/cheops elegant regular.ttf") format('woff');
+}
+
+
+body {
+    background-color: #fcf6f0 !important;
+}
+
+/* Header styling */
+#name {
+    font-family: myfont;
+    font-size: 8vw;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-top: 30px;
+    color: #874537;
+}
+
+#name a {
+    color: inherit; /* Inherit the color from the parent element */
+    text-decoration: none; /* Remove underline, optional */
+}
+
+#sub_header {
+    font-family: myfont;
+    font-size: 2vw;
+    font-style: italic;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2lh;
+}
+
+.header-container {
+    display: flex;
+    justify-content: center; /* Centers #page_links within the container */
+    width: 100%; /* Full width to center content */
+}
+
+/* Hamburger menu styling */
+.hamburger {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 10px;
+    text-align: right;
+}
+
+/* Mobile view (max-width: 768px) */
+@media (max-width: 768px) {
+    #page_links {
+        display: flex;
+        justify-content: center; /* Horizontally center */
+        align-items: center; /* Vertically center if needed */
+        height: 100px; /* Set a height for the container if needed */
+    }
+
+    .hamburger {
+        display: block; /* Show the hamburger icon on small screens */
+    }
+
+    .hamburger-icon {
+        width: 60px; /* Adjust the size of the hamburger icon */
+        cursor: pointer;
+    }
+
+    ul {
+        display: none; /* Hide the menu initially */
+    }
+
+    ul li {
+        display: block; /* Display list items vertically */
+        margin: 10px 0;
+    }
+}
+
+/* Desktop view (min-width: 768px) */
+@media (min-width: 768px) {
+    .hamburger {
+        display: none; /* Hide the hamburger icon on large screens */
+    }
+
+    ul {
+        display: inline-block; /* Show the menu on large screens */
+    }
+
+    ul li {
+        display: inline-block; /* List items inline on large screens */
+        margin: 0 20px;
+    }
+
+    #nav-toggle {
+        display: none; /* Hide the checkbox */
+    }
+}
+
+#page_links {
+    /* padding: 80px; */
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: center; /* Centers the image */
+    align-items: center; /* Centers the content vertically */
+    width: calc(100%-20px);
+    height: auto; /* Adjust height to fit the image */
+    overflow: hidden;
+}
+
+.background-stripe {
+    position: absolute;
+    top: 50%; /* Centered vertically */
+    transform: translateY(-50%);
+    width: 100%;
+    height: 10px; /* Maintain the original stripe thickness */
+    background: repeating-linear-gradient(
+        to right,
+        black 0, black 1px, transparent 1px, transparent 2% /* Outline-only pattern */
+    );
+    z-index: 1; /* Below the image */
+    border: 1px solid black; /* Add an overall black border */
+}
+
+.header-image {
+    position: relative;
+    z-index: 2; /* Above the background stripe */
+    max-width: 100%; /* Ensure it doesn’t overflow */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.hover-container {
+    position: relative;
+    width: 100%; /* Match the width of #page_links */
+    height: 100%; /* Match the height of the container */
+    z-index: 3; /* Ensure it’s above other elements */
+}
+
+.hover-area {
+    position: absolute; /* Position relative to #page_links */
+    top: 0;
+    height: 100%; /* Full height of the container */
+    cursor: pointer;
+    background: transparent; /* Invisible by default */
+    z-index: 4; /* Ensure it’s above other elements */
+}
+
+/* Define the boundaries */
+.hover-area-1 {
+    left: 0;
+    width: 33.33%; /* First third */
+}
+
+.hover-area-2 {
+    left: 33.33%;
+    width: 33.33%; /* Middle third */
+}
+
+.hover-area-3 {
+    left: 66.66%;
+    width: 33.33%; /* Last third */
+}
+
+#page_links img,
+#page_links .hover-area {
+    margin: 0 auto;
+}
+/* Debugging: Make hover areas visible */
+
+
+.hover-area-1:hover ~ .header-image {
+    content: url("/Associated_files/IMG_2373_3.png") !important;
+}
+
+.hover-area-2:hover ~ .header-image {
+    content: url("/Associated_files/IMG_2373_4.png") !important;
+}
+
+.hover-area-3:hover ~ .header-image {
+    content: url("/Associated_files/IMG_2373_5.png") !important;
+}
+
+/* Hover effect: Outline-only boxes */
+.hover-area:hover ~ .background-stripe {
+    background: repeating-linear-gradient(
+        to right,
+        black 0, black 1px, transparent 1px, transparent 2% /* Outline-only pattern */
+    );
+    height: 10px; /* Maintain height */
+    border: 1px solid black; /* Add an overall black border */
+}
+
+/* Footer image */
+#footer_image {
+    padding-top: 2.5lh;
+    display: flex;
+    margin: 0 auto;
+    width: 80%;
+    justify-content: center;
+}
+
+#recent-stories {
+    padding: 0 12vw;
+    background-color: #cf6f0;
+}
+
+#recent-stories h2 {
+    position: relative;
+    text-align: center;
+    font-family: myfont;
+    font-size: 2vw;
+    margin: 20px 0;
+}
+
+.stories-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+    margin-bottom: 20vw;
+}
+
+#recent-stories h2::after {
+    content: "";
+    position: absolute;
+    top: 50%; /* Center the line vertically */
+    width: 40%; /* Matches intended width */
+    height: 4px; /* Matches the thickness of the page links list */
+    background: linear-gradient(
+        to right,
+        #a9b6bf 8%, #c6d57e 8% 16%, #046582 16% 24%, #bfb051 24% 32%,
+        #b97a95 32% 40%, #9cafaa 40% 48%, #ff7878 48% 56%, #ac9784 56% 64%,
+        #e2afac 64% 72%, #f1a979 72% 80%, #7eacb5 80% 88%, #ff7878 88% 96%, #f1a979 96% 100% 
+    );
+    z-index: -1; /* Places the line behind the text */
+}
+
+#recent-stories h2::before {
+    content: "";
+    position: absolute;
+    top: 50%; /* Center the line vertically */
+    width: 40%; /* Matches intended width */
+    height: 4px; /* Matches the thickness of the page links list */
+    background: linear-gradient(
+        to right,
+        #f1ca89 5%, #7eacb5 5% 10%, #b97a95 10% 15%, #678a74 15% 20%,
+        #e2afac 20% 25%, #9cafaa 25% 30%, #046582 30% 35%, #dac0a6 35% 40%,
+        #ff7878 40% 45%, #bfb051 45% 50%, #c6d57e 50% 55%, #a9b6bf 55% 60%,
+        #ac9784 60% 65%, #d0d5bf 65% 70%, #f1a979 70% 75%, #ff7878 75% 80%, #9cafaa 88% 96%, #b97a95 96% 100% 
+    );
+    z-index: -1; /* Places the line behind the text */
+}
+
+#recent-stories h2::before {
+    left: 0;
+}
+
+#recent-stories h2::after {
+    right: 0;
+}
+
+
+#recent-stories h2::before {
+    content: "";
+    position: absolute;
+    top: 50%; /* Center the bar vertically */
+    left: 0;
+    right: 0;
+    height: 4px; /* Matches the thickness of the page links list */
+    background-color: black;
+    z-index: -1; /* Places the line behind the text */
+}
+
+#recent-stories h2 span {
+    background-color: #cf6f0; /* Same color as the #recent-stories background */
+    padding: 0 10px; /* Adds padding on either side to reveal the bar */
+}
+
+.story-item {
+    width: 30%;
+    text-align: left;
+}
+
+.story-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.story-item a {
+    text-decoration: none;
+    font-family: myfont;
+}
+.story-item a h3 {
+    font-size: 1.2em;
+    margin-top: 10px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.story-item a:hover h3 { 
+    color: #874537;
+    text-decoration: underline;
+}

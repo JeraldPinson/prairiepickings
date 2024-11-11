@@ -1,17 +1,16 @@
-/* Font faces */
 @font-face {
     font-family: "myfont_3";
-    src: url("./Associated_files/Fox-Geometric-Font/Fonts/fox.ttf") format('woff');
+    src: url("/Associated_files/Fox-Geometric-Font/Fonts/fox.ttf") format('woff');
 }
 
 @font-face {
     font-family: "myfont_2";
-    src: url("./Associated_files/BernhardModernStd-Roman.woff") format('woff');
+    src: url("/Associated_files/BernhardModernStd-Roman.woff") format('woff');
 }
 
 @font-face {
     font-family: "myfont";
-    src: url("./Associated_files/cheops elegant regular.ttf") format('woff');
+    src: url("/Associated_files/cheops elegant regular.ttf") format('woff');
 }
 
 
@@ -186,15 +185,15 @@ body {
 
 
 .hover-area-1:hover ~ .header-image {
-    content: url("./Associated_files/IMG_2373_3.png") !important;
+    content: url("../Associated_files/IMG_2373_3.png") !important;
 }
 
 .hover-area-2:hover ~ .header-image {
-    content: url("./Associated_files/IMG_2373_4.png") !important;
+    content: url("../Associated_files/IMG_2373_4.png") !important;
 }
 
 .hover-area-3:hover ~ .header-image {
-    content: url("./Associated_files/IMG_2373_5.png") !important;
+    content: url("../Associated_files/IMG_2373_5.png") !important;
 }
 
 /* Hover effect: Outline-only boxes */
@@ -207,114 +206,97 @@ body {
     border: 1px solid black; /* Add an overall black border */
 }
 
-/* Footer image */
-#footer_image {
-    padding-top: 2.5lh;
+/* Article Section */
+.article-section {
+    text-align: center; /* Center the entire article section */
+}
+
+/* Title and Subtitle Alignment */
+.article-title, .article-subtitle {
+    text-align: left;   /* Align both title and subtitle to the left */
+    margin-left: auto;   /* Same left indent for both */
+    margin-right: auto;
+    width: 60%;
+}
+
+/* Title Styling */
+.article-title {
+    font-family: myfont;  /* Cheops Elegant font */
+    font-size: 4rem;      /* Large font size */
+    margin-bottom: 10px;  /* Space between title and subtitle */
+}
+
+/* Subtitle Styling */
+.article-subtitle {
+    font-family: body_font;  /* Subtitle font */
+    font-weight: 200;             /* Regular weight */
+    font-size: 1.5rem;              /* Half the size of the title */
+    margin-top: 0;
+    margin-bottom: 20px;          /* Space below the subtitle */
+}
+
+/* Article Body */
+.article-body {
+    font-family: body_font;
+    font-size: 1.5rem;    /* Body text size */
+    /*font-weight: 200;*/
+    width: 45%;           /* Text takes up 45% of the screen */
+    margin: 0 auto;       /* Center the body content */
+    text-align: left;     /* Align the text inside the article body to the left */
+}
+
+/* Header Image */
+.header_image {
     display: flex;
-    margin: 0 auto;
-    width: 80%;
+    margin: 1vh;
     justify-content: center;
+    padding-top: 2.5lh;
 }
 
-#recent-stories {
-    padding: 0 12vw;
-    background-color: #cf6f0;
-}
-
-#recent-stories h2 {
-    position: relative;
-    text-align: center;
-    font-family: myfont;
-    font-size: 2vw;
-    margin: 20px 0;
-}
-
-.stories-row {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 100px;
-    margin-bottom: 20vw;
-}
-
-#recent-stories h2::after {
-    content: "";
-    position: absolute;
-    top: 50%; /* Center the line vertically */
-    width: 35%; /* Matches intended width */
-    height: 4px; /* Matches the thickness of the page links list */
-    background: linear-gradient(
-        to right,
-        #a9b6bf 8%, #c6d57e 8% 16%, #046582 16% 24%, #bfb051 24% 32%,
-        #b97a95 32% 40%, #9cafaa 40% 48%, #ff7878 48% 56%, #ac9784 56% 64%,
-        #e2afac 64% 72%, #f1a979 72% 80%, #7eacb5 80% 88%, #ff7878 88% 96%, #f1a979 96% 100% 
-    );
-    z-index: -1; /* Places the line behind the text */
-}
-
-#recent-stories h2::before {
-    content: "";
-    position: absolute;
-    top: 50%; /* Center the line vertically */
-    width: 35%; /* Matches intended width */
-    height: 4px; /* Matches the thickness of the page links list */
-    background: linear-gradient(
-        to right,
-        #f1ca89 5%, #7eacb5 5% 10%, #b97a95 10% 15%, #678a74 15% 20%,
-        #e2afac 20% 25%, #9cafaa 25% 30%, #046582 30% 35%, #dac0a6 35% 40%,
-        #ff7878 40% 45%, #bfb051 45% 50%, #c6d57e 50% 55%, #a9b6bf 55% 60%,
-        #ac9784 60% 65%, #d0d5bf 65% 70%, #f1a979 70% 75%, #ff7878 75% 80%, #9cafaa 88% 96%, #b97a95 96% 100% 
-    );
-    z-index: -1; /* Places the line behind the text */
-}
-
-#recent-stories h2::before {
-    left: 0;
-}
-
-#recent-stories h2::after {
-    right: 0;
-}
-
-
-#recent-stories h2::before {
-    content: "";
-    position: absolute;
-    top: 50%; /* Center the bar vertically */
-    left: 0;
-    right: 0;
-    height: 4px; /* Matches the thickness of the page links list */
-    background-color: black;
-    z-index: -1; /* Places the line behind the text */
-}
-
-#recent-stories h2 span {
-    background-color: #cf6f0; /* Same color as the #recent-stories background */
-    padding: 0 10px; /* Adds padding on either side to reveal the bar */
-}
-
-.story-item {
-    width: 30%;
-    text-align: left;
-}
-
-.story-item img {
-    width: 100%;
+.header_image img {
+    max-width: 65%;
     height: auto;
-    border-radius: 8px;
+    display: block;
 }
 
-.story-item a {
-    text-decoration: none;
-    font-family: myfont;
-}
-.story-item a h3 {
-    font-size: 1.2em;
-    margin-top: 10px;
-    color: #000000;
-    text-decoration: none;
+.article-body p {
+    margin-bottom: 20px; /* Add some space between paragraphs */
+    align-content: left;
 }
 
-.story-item a:hover h3 { 
-    color: #874537;
-    text-decoration: underline;
+.subheading_one {
+    font-family: body_font;
+    font-size: 2rem;     /* Adjust the size as needed */
+    font-weight: bold;   /* Make the text bold */
+    text-align: left;    /* Align it to the left if required */
+    margin: 20px 0;      /* Add some margin for spacing */
+}
+
+.images {
+    position: relative;
+    max-width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 4%;
+    padding-bottom: 4%;
+}
+
+.text-image-wrapper {
+    float: right; /* Float the wrapper to the right */
+    width: 60%; /* Set the wrapper's width */
+    margin-left: 20px; /* Add space between the wrapper and text */
+    margin-bottom: 20px; /* Space below the wrapper */
+    display: block;
+}
+
+.image_2 {
+    width: 100%; /* Make the image take the full width of the wrapper */
+    display: block;
+}
+
+.image-caption {
+    text-align: left; /* Align the caption to the left */
+    font-size: 0.9rem; /* Adjust the font size */
+    margin-top: 5px; /* Space between the image and caption */
+    color: #555; /* Optional color adjustment */
 }
