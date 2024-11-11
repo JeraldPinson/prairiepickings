@@ -185,15 +185,15 @@ body {
 
 
 .hover-area-1:hover ~ .header-image {
-    content: url("../Associated_files/IMG_2373_3.png") !important;
+    content: url("/Associated_files/IMG_2373_3.png") !important;
 }
 
 .hover-area-2:hover ~ .header-image {
-    content: url("../Associated_files/IMG_2373_4.png") !important;
+    content: url("/Associated_files/IMG_2373_4.png") !important;
 }
 
 .hover-area-3:hover ~ .header-image {
-    content: url("../Associated_files/IMG_2373_5.png") !important;
+    content: url("/Associated_files/IMG_2373_5.png") !important;
 }
 
 /* Hover effect: Outline-only boxes */
