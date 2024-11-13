@@ -30,11 +30,6 @@ body {
     color: #874537;
 }
 
-#name a {
-    color: inherit; /* Inherit the color from the parent element */
-    text-decoration: none; /* Remove underline, optional */
-}
-
 #sub_header {
     font-family: myfont;
     font-size: 2vw;
@@ -46,8 +41,8 @@ body {
 
 .header-container {
     display: flex;
-    justify-content: center;
-    width: 100%; 
+    justify-content: center; /* Centers #page_links within the container */
+    width: 100%; /* Full width to center content */
 }
 
 /* Hamburger menu styling */
@@ -125,12 +120,23 @@ body {
     transform: translateY(-50%);
     width: 100%;
     height: 10px; /* Maintain the original stripe thickness */
-    background: repeating-linear-gradient(
+    background: linear-gradient(
         to right,
-        black 0, black 1px, transparent 1px, transparent 2% /* Outline-only pattern */
+        #a9b6bf 2%, #c6d57e 2% 4%, #046582 4% 6%, #bfb051 6% 8%,
+        #b97a95 8% 10%, #9cafaa 10% 12%, #ff7878 12% 14%, #ac9784 14% 16%,
+        #e2afac 16% 18%, #f1a979 18% 20%, #7eacb5 20% 22%, #d0d5bf 22% 24%,
+        #678a74 24% 26%, #ff7878 26% 28%, #f1ca89 28% 30%, #9eb093 30% 32%,
+        #dac0a6 32% 34%, #6c7188 34% 36%, #9cafaa 36% 38%, #b97a95 38% 40%,
+        #d0d5bf 40% 42%, #7eacb5 42% 44%, #046582 44% 46%, #9cafaa 46% 48%,
+        #c6d57e 48% 50%, #f1a979 50% 52%, #a9b6bf 52% 54%, #ff7878 54% 56%,
+        #678a74 56% 58%, #dac0a6 58% 60%, #b97a95 60% 62%, #9cafaa 62% 64%,
+        #f1ca89 64% 66%, #046582 66% 68%, #7eacb5 68% 70%, #a9b6bf 70% 72%,
+        #e2afac 72% 74%, #c6d57e 74% 76%, #b97a95 76% 78%, #ff7878 78% 80%,
+        #d0d5bf 80% 82%, #f1a979 82% 84%, #9cafaa 84% 86%, #e2afac 86% 88%,
+        #f1ca89 88% 90%, #c6d57e 90% 92%, #046582 92% 94%, #6c7188 94% 96%,
+        #a9b6bf 96% 98%, #9eb093 98% 100%
     );
     z-index: 1; /* Below the image */
-    border: 1px solid black; /* Add an overall black border */
 }
 
 .header-image {
@@ -234,7 +240,7 @@ body {
     content: "";
     position: absolute;
     top: 50%; /* Center the line vertically */
-    width: 40%; /* Matches intended width */
+    width: 35%; /* Matches intended width */
     height: 4px; /* Matches the thickness of the page links list */
     background: linear-gradient(
         to right,
@@ -249,7 +255,7 @@ body {
     content: "";
     position: absolute;
     top: 50%; /* Center the line vertically */
-    width: 40%; /* Matches intended width */
+    width: 35%; /* Matches intended width */
     height: 4px; /* Matches the thickness of the page links list */
     background: linear-gradient(
         to right,

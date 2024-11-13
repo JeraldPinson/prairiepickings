@@ -30,6 +30,11 @@ body {
     color: #874537;
 }
 
+#name a {
+    color: inherit; /* Inherit the color from the parent element */
+    text-decoration: none; /* Remove underline, optional */
+}
+
 #sub_header {
     font-family: myfont;
     font-size: 2vw;
@@ -55,32 +60,7 @@ body {
 }
 
 /* Mobile view (max-width: 768px) */
-@media (max-width: 768px) {
-    #page_links {
-        display: flex;
-        justify-content: center; /* Horizontally center */
-        align-items: center; /* Vertically center if needed */
-        height: 100px; /* Set a height for the container if needed */
-    }
 
-    .hamburger {
-        display: block; /* Show the hamburger icon on small screens */
-    }
-
-    .hamburger-icon {
-        width: 60px; /* Adjust the size of the hamburger icon */
-        cursor: pointer;
-    }
-
-    ul {
-        display: none; /* Hide the menu initially */
-    }
-
-    ul li {
-        display: block; /* Display list items vertically */
-        margin: 10px 0;
-    }
-}
 
 /* Desktop view (min-width: 768px) */
 @media (min-width: 768px) {
@@ -104,13 +84,13 @@ body {
 
 #page_links {
     /* padding: 80px; */
-    margin: 0 auto;
+    margin: 5px auto;
     position: relative;
     display: flex;
     justify-content: center; /* Centers the image */
     align-items: center; /* Centers the content vertically */
-    width: calc(100%-20px);
-    height: auto; /* Adjust height to fit the image */
+    /* width: calc(100%-20px); */
+    
     overflow: hidden;
 }
 
@@ -209,7 +189,6 @@ body {
 
 /* Footer image */
 #footer_image {
-    padding-top: 2.5lh;
     display: flex;
     margin: 0 auto;
     width: 80%;
@@ -232,8 +211,8 @@ body {
 .stories-row {
     display: flex;
     justify-content: space-between;
-    margin-top: 100px;
-    margin-bottom: 20vw;
+    margin-top: 7%;
+    margin-bottom: 7%;
 }
 
 #recent-stories h2::after {
@@ -308,7 +287,7 @@ body {
     font-family: myfont;
 }
 .story-item a h3 {
-    font-size: 1.2em;
+    font-size: 2vw;
     margin-top: 10px;
     color: #000000;
     text-decoration: none;

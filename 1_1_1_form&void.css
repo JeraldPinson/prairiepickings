@@ -29,6 +29,11 @@ body {
     color: #874537;
 }
 
+#name a {
+    color: inherit; /* Inherit the color from the parent element */
+    text-decoration: none; /* Remove underline, optional */
+}
+
 #sub_header {
     font-family: myfont;
     font-size: 2vw;
@@ -222,8 +227,8 @@ body {
 /* Title Styling */
 .article-title {
     font-family: myfont;  /* Cheops Elegant font */
-    font-size: 4rem;      /* Large font size */
-    margin-bottom: 10px;  /* Space between title and subtitle */
+    font-size: 3.5vw;      /* Large font size */
+    margin-bottom: 1vh;  /* Space between title and subtitle */
 }
 
 /* Subtitle Styling */
