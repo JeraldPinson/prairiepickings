@@ -209,7 +209,6 @@ body {
 
 /* Footer image */
 #footer_image {
-    padding-top: 2.5lh;
     display: flex;
     margin: 0 auto;
     width: 80%;

@@ -1,4 +1,9 @@
 @font-face {
+    font-family: "myfont_4";
+    src: url("/Associated_files/Charter/Charter\ Regular.ttf") format('woff');
+}
+
+@font-face {
     font-family: "myfont_3";
     src: url("/Associated_files/Fox-Geometric-Font/Fonts/fox.ttf") format('woff');
 }
@@ -12,7 +17,6 @@
     font-family: "myfont";
     src: url("/Associated_files/cheops elegant regular.ttf") format('woff');
 }
-
 
 body {
     background-color: #fcf6f0 !important;
@@ -49,15 +53,6 @@ body {
     width: 100%; /* Full width to center content */
 }
 
-/* Hamburger menu styling */
-.hamburger {
-    display: none;
-    font-size: 30px;
-    cursor: pointer;
-    padding: 10px;
-    text-align: right;
-}
-
 /* Mobile view (max-width: 768px) */
 @media (max-width: 768px) {
     #page_links {
@@ -83,26 +78,6 @@ body {
     ul li {
         display: block; /* Display list items vertically */
         margin: 10px 0;
-    }
-}
-
-/* Desktop view (min-width: 768px) */
-@media (min-width: 768px) {
-    .hamburger {
-        display: none; /* Hide the hamburger icon on large screens */
-    }
-
-    ul {
-        display: inline-block; /* Show the menu on large screens */
-    }
-
-    ul li {
-        display: inline-block; /* List items inline on large screens */
-        margin: 0 20px;
-    }
-
-    #nav-toggle {
-        display: none; /* Hide the checkbox */
     }
 }
 
@@ -233,19 +208,19 @@ body {
 
 /* Subtitle Styling */
 .article-subtitle {
-    font-family: body_font;  /* Subtitle font */
+    font-family: myfont_4;  /* Subtitle font *
     font-weight: 200;             /* Regular weight */
-    font-size: 1.5rem;              /* Half the size of the title */
+    font-size: 1.5vw;              /* Half the size of the title */
     margin-top: 0;
     margin-bottom: 20px;          /* Space below the subtitle */
 }
 
 /* Article Body */
 .article-body {
-    font-family: body_font;
-    font-size: 1.5rem;    /* Body text size */
+    font-family: myfont_4;
+    font-size: 1.5vw;    /* Body text size */
     /*font-weight: 200;*/
-    width: 45%;           /* Text takes up 45% of the screen */
+    width: 55vw;           /* Text takes up 45% of the screen */
     margin: 0 auto;       /* Center the body content */
     text-align: left;     /* Align the text inside the article body to the left */
 }

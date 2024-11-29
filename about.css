@@ -46,8 +46,8 @@ body {
 
 .header-container {
     display: flex;
-    justify-content: center;
-    width: 100%; 
+    justify-content: center; /* Centers #page_links within the container */
+    width: 100%; /* Full width to center content */
 }
 
 /* Hamburger menu styling */
@@ -60,32 +60,7 @@ body {
 }
 
 /* Mobile view (max-width: 768px) */
-@media (max-width: 768px) {
-    #page_links {
-        display: flex;
-        justify-content: center; /* Horizontally center */
-        align-items: center; /* Vertically center if needed */
-        height: 100px; /* Set a height for the container if needed */
-    }
 
-    .hamburger {
-        display: block; /* Show the hamburger icon on small screens */
-    }
-
-    .hamburger-icon {
-        width: 60px; /* Adjust the size of the hamburger icon */
-        cursor: pointer;
-    }
-
-    ul {
-        display: none; /* Hide the menu initially */
-    }
-
-    ul li {
-        display: block; /* Display list items vertically */
-        margin: 10px 0;
-    }
-}
 
 /* Desktop view (min-width: 768px) */
 @media (min-width: 768px) {
@@ -109,13 +84,13 @@ body {
 
 #page_links {
     /* padding: 80px; */
-    margin: 0 auto;
+    margin: 5px auto;
     position: relative;
     display: flex;
     justify-content: center; /* Centers the image */
     align-items: center; /* Centers the content vertically */
-    width: calc(100%-20px);
-    height: auto; /* Adjust height to fit the image */
+    /* width: calc(100%-20px); */
+    
     overflow: hidden;
 }
 
@@ -125,12 +100,23 @@ body {
     transform: translateY(-50%);
     width: 100%;
     height: 10px; /* Maintain the original stripe thickness */
-    background: repeating-linear-gradient(
+    background: linear-gradient(
         to right,
-        black 0, black 1px, transparent 1px, transparent 2% /* Outline-only pattern */
+        #a9b6bf 2%, #c6d57e 2% 4%, #046582 4% 6%, #bfb051 6% 8%,
+        #b97a95 8% 10%, #9cafaa 10% 12%, #ff7878 12% 14%, #ac9784 14% 16%,
+        #e2afac 16% 18%, #f1a979 18% 20%, #7eacb5 20% 22%, #d0d5bf 22% 24%,
+        #678a74 24% 26%, #ff7878 26% 28%, #f1ca89 28% 30%, #9eb093 30% 32%,
+        #dac0a6 32% 34%, #6c7188 34% 36%, #9cafaa 36% 38%, #b97a95 38% 40%,
+        #d0d5bf 40% 42%, #7eacb5 42% 44%, #046582 44% 46%, #9cafaa 46% 48%,
+        #c6d57e 48% 50%, #f1a979 50% 52%, #a9b6bf 52% 54%, #ff7878 54% 56%,
+        #678a74 56% 58%, #dac0a6 58% 60%, #b97a95 60% 62%, #9cafaa 62% 64%,
+        #f1ca89 64% 66%, #046582 66% 68%, #7eacb5 68% 70%, #a9b6bf 70% 72%,
+        #e2afac 72% 74%, #c6d57e 74% 76%, #b97a95 76% 78%, #ff7878 78% 80%,
+        #d0d5bf 80% 82%, #f1a979 82% 84%, #9cafaa 84% 86%, #e2afac 86% 88%,
+        #f1ca89 88% 90%, #c6d57e 90% 92%, #046582 92% 94%, #6c7188 94% 96%,
+        #a9b6bf 96% 98%, #9eb093 98% 100%
     );
     z-index: 1; /* Below the image */
-    border: 1px solid black; /* Add an overall black border */
 }
 
 .header-image {
@@ -203,7 +189,6 @@ body {
 
 /* Footer image */
 #footer_image {
-    padding-top: 2.5lh;
     display: flex;
     margin: 0 auto;
     width: 80%;
@@ -286,29 +271,4 @@ body {
     padding: 0 10px; /* Adds padding on either side to reveal the bar */
 }
 
-.story-item {
-    width: 30%;
-    text-align: left;
-}
 
-.story-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-.story-item a {
-    text-decoration: none;
-    font-family: myfont;
-}
-.story-item a h3 {
-    font-size: 1.2em;
-    margin-top: 10px;
-    color: #000000;
-    text-decoration: none;
-}
-
-.story-item a:hover h3 { 
-    color: #874537;
-    text-decoration: underline;
-}

@@ -14,6 +14,53 @@
     src: url("/Associated_files/cheops elegant regular.ttf") format('woff');
 }
 
+.desktop-header {
+    display: block;
+}
+
+.mobile-header {
+    display: none;
+}
+
+/* Mobile view (max-width: 768px) */
+@media (max-width: 768px) {
+    .desktop-header {
+        display: none; /* Hide the wide image and stripe */
+    }
+
+    .mobile-header {
+        display: flex; /* Show the stacked images */
+        flex-direction: column; /* Stack them vertically */
+        align-items: center; /* Center align */
+        justify-content: center;
+        width: 100%;
+    }
+
+    .mobile-header a {
+        display: block; /* Ensure the links behave as block elements */
+        width: 80%; /* Match the footer width */
+        text-align: center; /* Center align the image inside the link */
+    }
+    
+    .mobile-header-image {
+        width: 80%; /* Match the footer width */
+        margin: 5px 0; /* Add spacing between images */
+        padding-bottom: 2vh;
+    }
+
+ /* Hover effect */
+ .mobile-header a:nth-child(1) .mobile-header-image:hover {
+    content: url("/Associated_files/IMG_2373_7.png");
+}
+
+.mobile-header a:nth-child(2) .mobile-header-image:hover {
+    content: url("/Associated_files/IMG_2373_9.png");
+}
+
+.mobile-header a:nth-child(3) .mobile-header-image:hover {
+    content: url("/Associated_files/IMG_2373_11.png");
+}    
+}
 
 body {
     background-color: #fcf6f0 !important;
@@ -48,38 +95,6 @@ body {
     display: flex;
     justify-content: center; /* Centers #page_links within the container */
     width: 100%; /* Full width to center content */
-}
-
-/* Hamburger menu styling */
-.hamburger {
-    display: none;
-    font-size: 30px;
-    cursor: pointer;
-    padding: 10px;
-    text-align: right;
-}
-
-/* Mobile view (max-width: 768px) */
-
-
-/* Desktop view (min-width: 768px) */
-@media (min-width: 768px) {
-    .hamburger {
-        display: none; /* Hide the hamburger icon on large screens */
-    }
-
-    ul {
-        display: inline-block; /* Show the menu on large screens */
-    }
-
-    ul li {
-        display: inline-block; /* List items inline on large screens */
-        margin: 0 20px;
-    }
-
-    #nav-toggle {
-        display: none; /* Hide the checkbox */
-    }
 }
 
 #page_links {
@@ -296,4 +311,13 @@ body {
 .story-item a:hover h3 { 
     color: #874537;
     text-decoration: underline;
+}
+
+.attribution {
+    font-family: "myfont_2";
+    font-size: 2vw;
+    display: flex;
+    justify-content: right;
+    padding-bottom: 1vw;
+    padding-right: 11.75vw;
 }
