@@ -60,6 +60,14 @@
 .mobile-header a:nth-child(3) .mobile-header-image:hover {
     content: url("/Associated_files/IMG_2373_11.png");
 }    
+#recent-stories h2::after {
+    display: none;
+}
+
+#recent-stories h2::before {
+    display: none;
+}
+
 }
 
 body {
@@ -213,13 +221,14 @@ body {
 #recent-stories {
     padding: 0 12vw;
     background-color: #cf6f0;
+    
 }
 
 #recent-stories h2 {
     position: relative;
     text-align: center;
     font-family: myfont;
-    font-size: 2vw;
+    font-size: 2rem;
     margin: 20px 0;
 }
 
@@ -234,7 +243,7 @@ body {
     content: "";
     position: absolute;
     top: 50%; /* Center the line vertically */
-    width: 35%; /* Matches intended width */
+    width: 50%; /* Matches intended width */
     height: 4px; /* Matches the thickness of the page links list */
     background: linear-gradient(
         to right,
@@ -249,7 +258,7 @@ body {
     content: "";
     position: absolute;
     top: 50%; /* Center the line vertically */
-    width: 35%; /* Matches intended width */
+    width: 50%; /* Matches intended width */
     height: 4px; /* Matches the thickness of the page links list */
     background: linear-gradient(
         to right,
@@ -282,8 +291,8 @@ body {
 }
 
 #recent-stories h2 span {
-    background-color: #cf6f0; /* Same color as the #recent-stories background */
-    padding: 0 10px; /* Adds padding on either side to reveal the bar */
+    background-color: #fcf6f0; /* Same color as the #recent-stories background */
+    padding: 0 30px; /* Adds padding on either side to reveal the bar */
 }
 
 .story-item {
