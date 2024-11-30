@@ -50,17 +50,16 @@ body {
     width: 100%; /* Full width to center content */
 }
 
-/* Hamburger menu styling */
-.hamburger {
-    display: none;
-    font-size: 30px;
-    cursor: pointer;
-    padding: 10px;
-    text-align: right;
+@media (max-width: 768px) {
+    .about_section {
+        flex-wrap: wrap; /* Allow wrapping for smaller screens */
+        flex-direction: column; /* Stack elements vertically */
+    }
+    .image,
+    .text {
+        width: 100%; /* Full width for each element */
+    }
 }
-
-/* Mobile view (max-width: 768px) */
-
 
 /* Desktop view (min-width: 768px) */
 @media (min-width: 768px) {
