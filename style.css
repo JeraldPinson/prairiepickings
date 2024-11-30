@@ -314,8 +314,8 @@ body {
 }
 
 .attribution {
-    font-family: "myfont_2";
-    font-size: 2vw;
+    font-family: "myfont_4";
+    font-size: 1.2vw;
     display: flex;
     justify-content: right;
     padding-bottom: 1vw;
