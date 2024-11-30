@@ -1,8 +1,4 @@
-@font-face {
-    font-family: "myfont_4";
-    src: url("/Associated_files/Charter/Charter\ Regular.ttf") format('woff');
-}
-
+/* Font faces */
 @font-face {
     font-family: "myfont_3";
     src: url("/Associated_files/Fox-Geometric-Font/Fonts/fox.ttf") format('woff');
@@ -17,6 +13,7 @@
     font-family: "myfont";
     src: url("/Associated_files/cheops elegant regular.ttf") format('woff');
 }
+
 
 body {
     background-color: #fcf6f0 !important;
@@ -53,43 +50,80 @@ body {
     width: 100%; /* Full width to center content */
 }
 
+.desktop-header {
+    display: block;
+}
+
+.mobile-header {
+    display: none;
+}
+
 /* Mobile view (max-width: 768px) */
 @media (max-width: 768px) {
-    #page_links {
-        display: flex;
-        justify-content: center; /* Horizontally center */
-        align-items: center; /* Vertically center if needed */
-        height: 100px; /* Set a height for the container if needed */
+    .desktop-header {
+        display: none; /* Hide the wide image and stripe */
     }
 
-    .hamburger {
-        display: block; /* Show the hamburger icon on small screens */
+    .mobile-header {
+        display: flex; /* Show the stacked images */
+        flex-direction: column; /* Stack them vertically */
+        align-items: center; /* Center align */
+        justify-content: center;
+        width: 100%;
     }
 
-    .hamburger-icon {
-        width: 60px; /* Adjust the size of the hamburger icon */
-        cursor: pointer;
+    .mobile-header a {
+        display: block; /* Ensure the links behave as block elements */
+        width: 80%; /* Match the footer width */
+        text-align: center; /* Center align the image inside the link */
+    }
+    
+    .mobile-header-image {
+        width: 80%; /* Match the footer width */
+        margin: 5px 0; /* Add spacing between images */
+        padding-bottom: 2vh;
     }
 
+ /* Hover effect */
+ .mobile-header a:nth-child(1) .mobile-header-image:hover {
+    content: url("/Associated_files/IMG_2373_7.png");
+}
+
+.mobile-header a:nth-child(2) .mobile-header-image:hover {
+    content: url("/Associated_files/IMG_2373_9.png");
+}
+
+.mobile-header a:nth-child(3) .mobile-header-image:hover {
+    content: url("/Associated_files/IMG_2373_11.png");
+}    
+}
+
+/* Desktop view (min-width: 768px) */
+@media (min-width: 768px) {
     ul {
-        display: none; /* Hide the menu initially */
+        display: inline-block; /* Show the menu on large screens */
     }
 
     ul li {
-        display: block; /* Display list items vertically */
-        margin: 10px 0;
+        display: inline-block; /* List items inline on large screens */
+        margin: 0 20px;
     }
+
+    #nav-toggle {
+        display: none; /* Hide the checkbox */
+    }
+    
 }
 
 #page_links {
     /* padding: 80px; */
-    margin: 0 auto;
+    margin: 5px auto;
     position: relative;
     display: flex;
     justify-content: center; /* Centers the image */
     align-items: center; /* Centers the content vertically */
-    width: calc(100%-20px);
-    height: auto; /* Adjust height to fit the image */
+    /* width: calc(100%-20px); */
+    
     overflow: hidden;
 }
 
@@ -161,8 +195,6 @@ body {
 #page_links .hover-area {
     margin: 0 auto;
 }
-/* Debugging: Make hover areas visible */
-
 
 .hover-area-1:hover ~ .header-image {
     content: url("/Associated_files/IMG_2373_3.png") !important;

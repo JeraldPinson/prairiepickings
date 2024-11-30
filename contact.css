@@ -45,14 +45,7 @@ body {
     width: 100%; /* Full width to center content */
 }
 
-/* Hamburger menu styling */
-.hamburger {
-    display: none;
-    font-size: 30px;
-    cursor: pointer;
-    padding: 10px;
-    text-align: right;
-}
+
 
 /* Mobile view (max-width: 768px) */
 @media (max-width: 768px) {

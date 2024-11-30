@@ -1,8 +1,4 @@
-@font-face {
-    font-family: "myfont_4";
-    src: url("/Associated_files/Charter/Charter\ Regular.ttf") format('woff');
-}
-
+/* Font faces */
 @font-face {
     font-family: "myfont_3";
     src: url("/Associated_files/Fox-Geometric-Font/Fonts/fox.ttf") format('woff');
@@ -17,6 +13,7 @@
     font-family: "myfont";
     src: url("/Associated_files/cheops elegant regular.ttf") format('woff');
 }
+
 
 body {
     background-color: #fcf6f0 !important;
@@ -53,43 +50,149 @@ body {
     width: 100%; /* Full width to center content */
 }
 
+.desktop-header {
+    display: block;
+}
+
+.mobile-header {
+    display: none;
+}
+
+body, section, div {
+    max-width: 100%; /* Allow full width */
+    width: 100%; /* Ensure they expand to the viewport width */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+    overflow-x: visible; /* Prevent clipping on horizontal overflow */
+}
+
+
+
 /* Mobile view (max-width: 768px) */
 @media (max-width: 768px) {
-    #page_links {
+    #name {
+        font-family: myfont;
+        font-size: 11vw;
         display: flex;
-        justify-content: center; /* Horizontally center */
-        align-items: center; /* Vertically center if needed */
-        height: 100px; /* Set a height for the container if needed */
+        justify-content: center;
+        text-align: center;
+        padding-top: 30px;
+        color: #874537;
+    }
+    
+    #sub_header {
+        font-family: myfont;
+        font-size: 3vw;
+        font-style: italic;
+        display: flex;
+        justify-content: center;
+        padding-bottom: 1lh;
     }
 
-    .hamburger {
-        display: block; /* Show the hamburger icon on small screens */
+    .desktop-header {
+        display: none; /* Hide the wide image and stripe */
     }
 
-    .hamburger-icon {
-        width: 60px; /* Adjust the size of the hamburger icon */
-        cursor: pointer;
+    .mobile-header {
+        display: flex; /* Show the stacked images */
+        flex-direction: column; /* Stack them vertically */
+        align-items: center; /* Center align */
+        justify-content: center;
+        width: 100% !important;
     }
 
+    .mobile-header a {
+        display: block; /* Ensure the links behave as block elements */
+        width: 100% !important; /* Override conflicting rules */
+        text-align: center; /* Center align the image inside the link */
+    }
+    
+    .mobile-header-image {
+        width: 80%; /* Match the footer width */
+        margin: 5px 0; /* Add spacing between images */
+        padding-bottom: 2vh;
+    }
+
+    /* Hover effect for mobile */
+    .mobile-header a:nth-child(1) .mobile-header-image:hover {
+        content: url("/Associated_files/IMG_2373_7.png");
+    }
+
+    .mobile-header a:nth-child(2) .mobile-header-image:hover {
+        content: url("/Associated_files/IMG_2373_9.png");
+    }
+
+    .mobile-header a:nth-child(3) .mobile-header-image:hover {
+        content: url("/Associated_files/IMG_2373_11.png");
+    }
+    
+    .header_image_tier1 {
+        width: 100% !important; /* Use full width of the viewport */
+        padding: 0;
+        margin: 0 auto !important; /* Center the container */
+    }
+
+    .header_image img {
+        width: 90% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        display: block;
+    }
+
+    /* Expand article section */
+    .article-section {
+        width: 100% !important; /* Use full width of the viewport */
+        margin: 0 auto; /* Center the container */
+        padding: 0 2%; /* Add minimal padding for aesthetics */
+        box-sizing: border-box; /* Include padding in total width */
+    }
+
+    /* Ensure article title and subtitle fit within the expanded container */
+    .article-title,
+    .article-subtitle {
+        width: 95% !important; /* Match container width */
+        margin: 0 auto; /* Center content */
+        text-align: left; /* Keep alignment consistent */
+
+    }
+
+    /* Adjust article body within the section */
+    .article-body {
+        width: 90% !important; /* Match the full width of the container */
+        margin: 0 auto; /* Center the text content */
+        padding: 0 !important; /* Remove padding */
+        text-align: left; /* Ensure consistent text alignment */
+    }
+}
+
+
+/* Desktop view (min-width: 768px) */
+@media (min-width: 768px) {
     ul {
-        display: none; /* Hide the menu initially */
+        display: inline-block; /* Show the menu on large screens */
     }
 
     ul li {
-        display: block; /* Display list items vertically */
-        margin: 10px 0;
+        display: inline-block; /* List items inline on large screens */
+        margin: 0 20px;
     }
+
+    #nav-toggle {
+        display: none; /* Hide the checkbox */
+    }
+    
 }
 
 #page_links {
     /* padding: 80px; */
-    margin: 0 auto;
+    margin: 5px auto;
     position: relative;
     display: flex;
     justify-content: center; /* Centers the image */
     align-items: center; /* Centers the content vertically */
-    width: calc(100%-20px);
-    height: auto; /* Adjust height to fit the image */
+    /* width: calc(100%-20px); */
+    
     overflow: hidden;
 }
 
@@ -161,8 +264,6 @@ body {
 #page_links .hover-area {
     margin: 0 auto;
 }
-/* Debugging: Make hover areas visible */
-
 
 .hover-area-1:hover ~ .header-image {
     content: url("/Associated_files/IMG_2373_3.png") !important;
@@ -202,7 +303,7 @@ body {
 /* Title Styling */
 .article-title {
     font-family: myfont;  /* Cheops Elegant font */
-    font-size: 3.5vw;      /* Large font size */
+    font-size: 3.5rem;      /* Large font size */
     margin-bottom: 1vh;  /* Space between title and subtitle */
 }
 
@@ -210,7 +311,7 @@ body {
 .article-subtitle {
     font-family: myfont_4;  /* Subtitle font *
     font-weight: 200;             /* Regular weight */
-    font-size: 1.5vw;              /* Half the size of the title */
+    font-size: 1.5rem;              /* Half the size of the title */
     margin-top: 0;
     margin-bottom: 20px;          /* Space below the subtitle */
 }
@@ -218,7 +319,7 @@ body {
 /* Article Body */
 .article-body {
     font-family: myfont_4;
-    font-size: 1.5vw;    /* Body text size */
+    font-size: 1.5rem;    /* Body text size */
     /*font-weight: 200;*/
     width: 55vw;           /* Text takes up 45% of the screen */
     margin: 0 auto;       /* Center the body content */
@@ -228,9 +329,8 @@ body {
 /* Header Image */
 .header_image {
     display: flex;
-    margin: 1vh;
+    margin-top: 2vw;
     justify-content: center;
-    padding-top: 2.5lh;
 }
 
 .header_image img {

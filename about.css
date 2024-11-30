@@ -50,14 +50,54 @@ body {
     width: 100%; /* Full width to center content */
 }
 
+.desktop-header {
+    display: block;
+}
+
+.mobile-header {
+    display: none;
+}
+
+/* Mobile view (max-width: 768px) */
 @media (max-width: 768px) {
-    .about_section {
-        flex-wrap: wrap; /* Allow wrapping for smaller screens */
-        flex-direction: column; /* Stack elements vertically */
+    .desktop-header {
+        display: none; /* Hide the wide image and stripe */
     }
-    .image,
-    .text {
-        width: 100%; /* Full width for each element */
+
+    .mobile-header {
+        display: flex; /* Show the stacked images */
+        flex-direction: column; /* Stack them vertically */
+        align-items: center; /* Center align */
+        justify-content: center;
+        width: 100%;
+    }
+
+    .mobile-header a {
+        display: block; /* Ensure the links behave as block elements */
+        width: 80%; /* Match the footer width */
+        text-align: center; /* Center align the image inside the link */
+    }
+    
+    .mobile-header-image {
+        width: 80%; /* Match the footer width */
+        margin: 5px 0; /* Add spacing between images */
+        padding-bottom: 2vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .mobile-header a:nth-child(1) .mobile-header-image {
+        content: url("/Associated_files/IMG_2373_7.png");
+    }
+
+    .mobile-header a:nth-child(2) .mobile-header-image:hover,
+    .mobile-header a:nth-child(2):hover ~ a:nth-child(1) .mobile-header-image {
+        content: url("/Associated_files/IMG_2373_9.png");
+    }
+
+    .mobile-header a:nth-child(3) .mobile-header-image:hover,
+    .mobile-header a:nth-child(3):hover ~ a:nth-child(1) .mobile-header-image {
+        content: url("/Associated_files/IMG_2373_11.png");
     }
 }
 
@@ -158,8 +198,6 @@ body {
 #page_links .hover-area {
     margin: 0 auto;
 }
-/* Debugging: Make hover areas visible */
-
 
 .hover-area-1:hover ~ .header-image {
     content: url("/Associated_files/IMG_2373_3.png") !important;
@@ -169,8 +207,18 @@ body {
     content: url("/Associated_files/IMG_2373_4.png") !important;
 }
 
+/* When hovering over .hover-area-2, also update .hover-area-1 */
+.hover-area-2:hover ~ .hover-area-1 img {
+    content: url("/Associated_files/IMG_2373_6.png") !important;
+}
+
 .hover-area-3:hover ~ .header-image {
     content: url("/Associated_files/IMG_2373_5.png") !important;
+}
+
+/* When hovering over .hover-area-3, also update .hover-area-1 */
+.hover-area-3:hover ~ .hover-area-1 img {
+    content: url("/Associated_files/IMG_2373_7.png") !important;
 }
 
 /* Hover effect: Outline-only boxes */
@@ -212,6 +260,78 @@ body {
 }
 
 .text {
+    font-family: myfont_4;
+    padding: 4vw;
+    position: relative;
+    width: 50%; /* Matches the image width */
+    font-size: clamp(1rem, 2.5vw, 2.5rem); /* Scales text dynamically */
+    word-wrap: break-word; /* Prevents text overflow */
+    display: flex; /* Flex container for vertical alignment */
+    align-items: center; /* Center text vertically */
+}
+
+.about_section_2 {
+    display: flex;
+    flex-wrap: nowrap; /* Prevents wrapping unless on smaller screens */
+    flex-direction: row; /* Ensures side-by-side layout */
+    height: auto;
+    position: relative;
+    overflow: visible;
+    background: #d0d5bf;
+}
+
+.image_2 {
+    position: relative;
+    width: 50%;
+    max-width: 50%; /* Constrain to half of the parent width */
+    height: auto;
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+}
+
+.image_2 img {
+    max-width: 100%; /* Scale image properly */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.text_2 {
+    font-family: myfont_4;
+    padding: 4vw;
+    position: relative;
+    width: 50%; /* Matches the image width */
+    font-size: clamp(1rem, 2.5vw, 2.5rem); /* Scales text dynamically */
+    word-wrap: break-word; /* Prevents text overflow */
+    display: flex; /* Flex container for vertical alignment */
+    align-items: center; /* Center text vertically */
+}
+
+.about_section_3 {
+    display: flex;
+    flex-wrap: nowrap; /* Prevents wrapping unless on smaller screens */
+    flex-direction: row; /* Ensures side-by-side layout */
+    height: auto;
+    position: relative;
+    overflow: visible;
+    background: #7facb6;
+}
+
+.image_3 {
+    position: relative;
+    width: 50%;
+    max-width: 50%; /* Constrain to half of the parent width */
+    height: auto;
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+}
+
+.image_3 img {
+    max-width: 100%; /* Scale image properly */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.text_3 {
     font-family: myfont_4;
     padding: 4vw;
     position: relative;
