@@ -68,6 +68,36 @@
     display: none;
 }
 
+.stories-row {
+    display: flex;
+    width: 100% !important;
+    margin-top: 7%;
+    margin-bottom: 7%;
+}
+
+.story-item {
+    width: 100% !important;
+    text-align: left;
+}
+
+.story-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.story-item a {
+    text-decoration: none;
+    font-family: myfont;
+}
+
+.story-item a h3 {
+    font-size: 6vw !important;
+    margin-top: 10px;
+    color: #000000;
+    text-decoration: none;
+}
+
 }
 
 body {
@@ -310,6 +340,7 @@ body {
     text-decoration: none;
     font-family: myfont;
 }
+
 .story-item a h3 {
     font-size: 2vw;
     margin-top: 10px;
