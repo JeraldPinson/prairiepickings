@@ -384,7 +384,6 @@ body, section, div {
     left: 50%;
     transform: translateX(-50%);
     padding-top: 4%;
-    padding-bottom: 4%;
 }
 
 .text-image-wrapper {
@@ -405,6 +404,7 @@ body, section, div {
     font-size: 0.9rem; /* Adjust the font size */
     margin-top: 5px; /* Space between the image and caption */
     color: #555; /* Optional color adjustment */
+    padding-bottom: 4rem;
 }
 
 
