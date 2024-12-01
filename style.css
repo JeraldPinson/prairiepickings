@@ -98,6 +98,33 @@
     text-decoration: none;
 }
 
+.social_media {
+    display: flex; /* Use flexbox to place items side by side */
+    justify-content: center; /* Center both items horizontally in the container */
+    align-items: center; /* Align items vertically */
+    gap: 0 !important; /* Add space between the images */
+    width: 100% !important; /* Make the parent container full width */
+}
+
+.facebook,
+.instagram {
+    width: 50% !important;
+    height: auto; /* Adjust height dynamically */
+    display: flex; /* Enable flexbox for internal alignment */
+    justify-content: center; /* Center the image inside each container */
+    align-items: center; /* Center the image vertically */
+}
+
+.facebook img,
+.instagram img {
+    max-width: 50% !important; /* Ensure images fit inside their containers */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    justify-content: center !important; /* Center the image inside each container */
+    align-items: center !important; /* Center the image vertically */
+    margin: auto;
+}
+
 }
 
 body {
@@ -361,3 +388,35 @@ body {
     padding-bottom: 1vw;
     padding-right: 11.75vw;
 }
+
+
+
+
+.social_media {
+    display: flex; /* Use flexbox to place items side by side */
+    justify-content: center; /* Center both items horizontally in the container */
+    align-items: center; /* Align items vertically */
+    gap: 10px; /* Add space between the images */
+    width: 100%; /* Make the parent container full width */
+}
+
+.facebook,
+.instagram {
+    width: 7%; /* Set the size of each container */
+    height: auto; /* Adjust height dynamically */
+    display: flex; /* Enable flexbox for internal alignment */
+    justify-content: center; /* Center the image inside each container */
+    align-items: center; /* Center the image vertically */
+    padding: 2vw;
+}
+
+.facebook img,
+.instagram img {
+    max-width: 100%; /* Ensure images fit inside their containers */
+    height: auto; /* Maintain aspect ratio */
+}
+
+
+
+
+

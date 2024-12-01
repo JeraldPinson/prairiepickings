@@ -14,6 +14,123 @@
     src: url("/Associated_files/cheops elegant regular.ttf") format('woff');
 }
 
+.desktop-header {
+    display: block;
+}
+
+.mobile-header {
+    display: none;
+}
+
+/* Mobile view (max-width: 768px) */
+@media (max-width: 768px) {
+    .desktop-header {
+        display: none; /* Hide the wide image and stripe */
+    }
+
+    .mobile-header {
+        display: flex; /* Show the stacked images */
+        flex-direction: column; /* Stack them vertically */
+        align-items: center; /* Center align */
+        justify-content: center;
+        width: 100%;
+    }
+
+    .mobile-header a {
+        display: block; /* Ensure the links behave as block elements */
+        width: 80%; /* Match the footer width */
+        text-align: center; /* Center align the image inside the link */
+    }
+    
+    .mobile-header-image {
+        width: 80%; /* Match the footer width */
+        margin: 5px 0; /* Add spacing between images */
+        padding-bottom: 2vh;
+    }
+
+    .about_section .image img {
+        content: url("/Associated_files/contact_image_2.jpg"); /* Change the image source */
+    }
+
+ /* Hover effect */
+ .mobile-header a:nth-child(1) .mobile-header-image:hover {
+    content: url("/Associated_files/IMG_2373_7.png");
+}
+
+.mobile-header a:nth-child(2) .mobile-header-image:hover {
+    content: url("/Associated_files/IMG_2373_9.png");
+}
+
+.mobile-header a:nth-child(3) .mobile-header-image:hover {
+    content: url("/Associated_files/IMG_2373_11.png");
+}    
+#recent-stories h2::after {
+    display: none;
+}
+
+#recent-stories h2::before {
+    display: none;
+}
+
+.stories-row {
+    display: flex;
+    width: 100% !important;
+    margin-top: 7%;
+    margin-bottom: 7%;
+}
+
+.story-item {
+    width: 100% !important;
+    text-align: left;
+}
+
+.story-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.story-item a {
+    text-decoration: none;
+    font-family: myfont;
+}
+
+.story-item a h3 {
+    font-size: 6vw !important;
+    margin-top: 10px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.social_media {
+    padding-top: 3vw;
+    display: flex; /* Use flexbox to place items side by side */
+    justify-content: center; /* Center both items horizontally in the container */
+    align-items: center; /* Align items vertically */
+    gap: 0 !important; /* Add space between the images */
+    width: 100% !important; /* Make the parent container full width */
+}
+
+.facebook,
+.instagram {
+    width: 30% !important;
+    height: auto; /* Adjust height dynamically */
+    display: flex; /* Enable flexbox for internal alignment */
+    justify-content: center; /* Center the image inside each container */
+    align-items: center; /* Center the image vertically */
+}
+
+.facebook img,
+.instagram img {
+    max-width: 50% !important; /* Ensure images fit inside their containers */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    justify-content: center !important; /* Center the image inside each container */
+    align-items: center !important; /* Center the image vertically */
+    margin: auto;
+}
+
+}
 
 body {
     background-color: #fcf6f0 !important;
@@ -28,6 +145,11 @@ body {
     text-align: center;
     padding-top: 30px;
     color: #874537;
+}
+
+#name a {
+    color: inherit; /* Inherit the color from the parent element */
+    text-decoration: none; /* Remove underline, optional */
 }
 
 #sub_header {
@@ -45,65 +167,15 @@ body {
     width: 100%; /* Full width to center content */
 }
 
-
-
-/* Mobile view (max-width: 768px) */
-@media (max-width: 768px) {
-    #page_links {
-        display: flex;
-        justify-content: center; /* Horizontally center */
-        align-items: center; /* Vertically center if needed */
-        height: 100px; /* Set a height for the container if needed */
-    }
-
-    .hamburger {
-        display: block; /* Show the hamburger icon on small screens */
-    }
-
-    .hamburger-icon {
-        width: 60px; /* Adjust the size of the hamburger icon */
-        cursor: pointer;
-    }
-
-    ul {
-        display: none; /* Hide the menu initially */
-    }
-
-    ul li {
-        display: block; /* Display list items vertically */
-        margin: 10px 0;
-    }
-}
-
-/* Desktop view (min-width: 768px) */
-@media (min-width: 768px) {
-    .hamburger {
-        display: none; /* Hide the hamburger icon on large screens */
-    }
-
-    ul {
-        display: inline-block; /* Show the menu on large screens */
-    }
-
-    ul li {
-        display: inline-block; /* List items inline on large screens */
-        margin: 0 20px;
-    }
-
-    #nav-toggle {
-        display: none; /* Hide the checkbox */
-    }
-}
-
 #page_links {
     /* padding: 80px; */
-    margin: 0 auto;
+    margin: 5px auto;
     position: relative;
     display: flex;
     justify-content: center; /* Centers the image */
     align-items: center; /* Centers the content vertically */
-    width: calc(100%-20px);
-    height: auto; /* Adjust height to fit the image */
+    /* width: calc(100%-20px); */
+    
     overflow: hidden;
 }
 
@@ -211,28 +283,29 @@ body {
 #recent-stories {
     padding: 0 12vw;
     background-color: #cf6f0;
+    
 }
 
 #recent-stories h2 {
     position: relative;
     text-align: center;
     font-family: myfont;
-    font-size: 2vw;
+    font-size: 2rem;
     margin: 20px 0;
 }
 
 .stories-row {
     display: flex;
     justify-content: space-between;
-    margin-top: 100px;
-    margin-bottom: 20vw;
+    margin-top: 7%;
+    margin-bottom: 7%;
 }
 
 #recent-stories h2::after {
     content: "";
     position: absolute;
     top: 50%; /* Center the line vertically */
-    width: 35%; /* Matches intended width */
+    width: 50%; /* Matches intended width */
     height: 4px; /* Matches the thickness of the page links list */
     background: linear-gradient(
         to right,
@@ -247,7 +320,7 @@ body {
     content: "";
     position: absolute;
     top: 50%; /* Center the line vertically */
-    width: 35%; /* Matches intended width */
+    width: 50%; /* Matches intended width */
     height: 4px; /* Matches the thickness of the page links list */
     background: linear-gradient(
         to right,
@@ -280,8 +353,8 @@ body {
 }
 
 #recent-stories h2 span {
-    background-color: #cf6f0; /* Same color as the #recent-stories background */
-    padding: 0 10px; /* Adds padding on either side to reveal the bar */
+    background-color: #fcf6f0; /* Same color as the #recent-stories background */
+    padding: 0 30px; /* Adds padding on either side to reveal the bar */
 }
 
 .story-item {
@@ -299,8 +372,9 @@ body {
     text-decoration: none;
     font-family: myfont;
 }
+
 .story-item a h3 {
-    font-size: 1.2em;
+    font-size: 2vw;
     margin-top: 10px;
     color: #000000;
     text-decoration: none;
@@ -311,3 +385,51 @@ body {
     text-decoration: underline;
 }
 
+.attribution {
+    font-family: "myfont_4";
+    font-size: 1.2vw;
+    display: flex;
+    justify-content: right;
+    padding-bottom: 1vw;
+    padding-right: 11.75vw;
+}
+
+.about_section {
+    margin-top: 3.5vw;
+    display: flex;
+    flex-wrap: nowrap; /* Prevents wrapping unless on smaller screens */
+    flex-direction: row; /* Ensures side-by-side layout */
+    height: auto;
+    position: relative;
+    overflow: visible;
+    background: #ac9784;
+}
+
+.image img {
+    width: 100%;
+    display: flex;
+}
+
+.social_media {
+    display: flex; /* Use flexbox to place items side by side */
+    justify-content: center; /* Center both items horizontally in the container */
+    align-items: center; /* Align items vertically */
+    gap: 10px; /* Add space between the images */
+    width: 100%; /* Make the parent container full width */
+}
+
+.facebook,
+.instagram {
+    width: 7%; /* Set the size of each container */
+    height: auto; /* Adjust height dynamically */
+    display: flex; /* Enable flexbox for internal alignment */
+    justify-content: center; /* Center the image inside each container */
+    align-items: center; /* Center the image vertically */
+    padding: 2vw;
+}
+
+.facebook img,
+.instagram img {
+    max-width: 100%; /* Ensure images fit inside their containers */
+    height: auto; /* Maintain aspect ratio */
+}
