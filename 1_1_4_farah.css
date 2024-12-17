@@ -1,0 +1,370 @@
+/* Font faces */
+@font-face {
+    font-family: "myfont_3";
+    src: url("/Associated_files/Fox-Geometric-Font/Fonts/fox.ttf") format('woff');
+}
+
+@font-face {
+    font-family: "myfont_2";
+    src: url("/Associated_files/BernhardModernStd-Roman.woff") format('woff');
+}
+
+@font-face {
+    font-family: "myfont";
+    src: url("/Associated_files/cheops elegant regular.ttf") format('woff');
+}
+
+
+body {
+    background-color: #fcf6f0 !important;
+}
+
+/* Header styling */
+#name {
+    font-family: myfont;
+    font-size: 8vw;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-top: 30px;
+    color: #874537;
+}
+
+#name a {
+    color: inherit; /* Inherit the color from the parent element */
+    text-decoration: none; /* Remove underline, optional */
+}
+
+#sub_header {
+    font-family: myfont;
+    font-size: 2vw;
+    font-style: italic;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2lh;
+}
+
+.header-container {
+    display: flex;
+    justify-content: center; /* Centers #page_links within the container */
+    width: 100%; /* Full width to center content */
+}
+
+.desktop-header {
+    display: block;
+}
+
+.mobile-header {
+    display: none;
+}
+
+/* Mobile view (max-width: 768px) */
+@media (max-width: 768px) {
+    .desktop-header {
+        display: none; /* Hide the wide image and stripe */
+    }
+
+    .mobile-header {
+        display: flex; /* Show the stacked images */
+        flex-direction: column; /* Stack them vertically */
+        align-items: center; /* Center align */
+        justify-content: center;
+        width: 100%;
+    }
+
+    .mobile-header a {
+        display: block; /* Ensure the links behave as block elements */
+        width: 80%; /* Match the footer width */
+        text-align: center; /* Center align the image inside the link */
+    }
+    
+    .mobile-header-image {
+        width: 80%; /* Match the footer width */
+        margin: 5px 0; /* Add spacing between images */
+        padding-bottom: 2vh;
+    }
+
+    .social_media {
+        display: flex; /* Use flexbox to place items side by side */
+        justify-content: center; /* Center both items horizontally in the container */
+        align-items: center; /* Align items vertically */
+        gap: 0 !important; /* Add space between the images */
+        width: 100% !important; /* Make the parent container full width */
+    }
+    
+    .facebook,
+    .instagram {
+        width: 30% !important;
+        height: auto; /* Adjust height dynamically */
+        display: flex; /* Enable flexbox for internal alignment */
+        justify-content: center; /* Center the image inside each container */
+        align-items: center; /* Center the image vertically */
+    }
+    
+    .facebook img,
+    .instagram img {
+        max-width: 50% !important; /* Ensure images fit inside their containers */
+        height: auto; /* Maintain aspect ratio */
+        display: block;
+        justify-content: center !important; /* Center the image inside each container */
+        align-items: center !important; /* Center the image vertically */
+        margin: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .mobile-header a:nth-child(1) .mobile-header-image {
+        content: url("/Associated_files/IMG_2373_7.png");
+    }
+
+    .mobile-header a:nth-child(2) .mobile-header-image:hover,
+    .mobile-header a:nth-child(2):hover ~ a:nth-child(1) .mobile-header-image {
+        content: url("/Associated_files/IMG_2373_9.png");
+    }
+
+    .mobile-header a:nth-child(3) .mobile-header-image:hover,
+    .mobile-header a:nth-child(3):hover ~ a:nth-child(1) .mobile-header-image {
+        content: url("/Associated_files/IMG_2373_11.png");
+    }
+}
+
+/* Desktop view (min-width: 768px) */
+@media (min-width: 768px) {
+    ul {
+        display: inline-block; /* Show the menu on large screens */
+    }
+
+    ul li {
+        display: inline-block; /* List items inline on large screens */
+        margin: 0 20px;
+    }
+
+    #nav-toggle {
+        display: none; /* Hide the checkbox */
+    }
+    
+}
+
+#page_links {
+    /* padding: 80px; */
+    margin: 5px auto;
+    position: relative;
+    display: flex;
+    justify-content: center; /* Centers the image */
+    align-items: center; /* Centers the content vertically */
+    /* width: calc(100%-20px); */
+    
+    overflow: hidden;
+}
+
+.background-stripe {
+    position: absolute;
+    top: 50%; /* Centered vertically */
+    transform: translateY(-50%);
+    width: 100%;
+    height: 10px; /* Maintain the original stripe thickness */
+    background: linear-gradient(
+        to right,
+        #a9b6bf 2%, #c6d57e 2% 4%, #046582 4% 6%, #bfb051 6% 8%,
+        #b97a95 8% 10%, #9cafaa 10% 12%, #ff7878 12% 14%, #ac9784 14% 16%,
+        #e2afac 16% 18%, #f1a979 18% 20%, #7eacb5 20% 22%, #d0d5bf 22% 24%,
+        #678a74 24% 26%, #ff7878 26% 28%, #f1ca89 28% 30%, #9eb093 30% 32%,
+        #dac0a6 32% 34%, #6c7188 34% 36%, #9cafaa 36% 38%, #b97a95 38% 40%,
+        #d0d5bf 40% 42%, #7eacb5 42% 44%, #046582 44% 46%, #9cafaa 46% 48%,
+        #c6d57e 48% 50%, #f1a979 50% 52%, #a9b6bf 52% 54%, #ff7878 54% 56%,
+        #678a74 56% 58%, #dac0a6 58% 60%, #b97a95 60% 62%, #9cafaa 62% 64%,
+        #f1ca89 64% 66%, #046582 66% 68%, #7eacb5 68% 70%, #a9b6bf 70% 72%,
+        #e2afac 72% 74%, #c6d57e 74% 76%, #b97a95 76% 78%, #ff7878 78% 80%,
+        #d0d5bf 80% 82%, #f1a979 82% 84%, #9cafaa 84% 86%, #e2afac 86% 88%,
+        #f1ca89 88% 90%, #c6d57e 90% 92%, #046582 92% 94%, #6c7188 94% 96%,
+        #a9b6bf 96% 98%, #9eb093 98% 100%
+    );
+    z-index: 1; /* Below the image */
+}
+
+.header-image {
+    position: relative;
+    z-index: 2; /* Above the background stripe */
+    max-width: 100%; /* Ensure it doesn’t overflow */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.hover-container {
+    position: relative;
+    width: 100%; /* Match the width of #page_links */
+    height: 100%; /* Match the height of the container */
+    z-index: 3; /* Ensure it’s above other elements */
+}
+
+.hover-area {
+    position: absolute; /* Position relative to #page_links */
+    top: 0;
+    height: 100%; /* Full height of the container */
+    cursor: pointer;
+    background: transparent; /* Invisible by default */
+    z-index: 4; /* Ensure it’s above other elements */
+}
+
+/* Define the boundaries */
+.hover-area-1 {
+    left: 0;
+    width: 33.33%; /* First third */
+}
+
+.hover-area-2 {
+    left: 33.33%;
+    width: 33.33%; /* Middle third */
+}
+
+.hover-area-3 {
+    left: 66.66%;
+    width: 33.33%; /* Last third */
+}
+
+#page_links img,
+#page_links .hover-area {
+    margin: 0 auto;
+}
+
+.hover-area-1:hover ~ .header-image {
+    content: url("/Associated_files/IMG_2373_3.png") !important;
+}
+
+.hover-area-2:hover ~ .header-image {
+    content: url("/Associated_files/IMG_2373_4.png") !important;
+}
+
+/* When hovering over .hover-area-2, also update .hover-area-1 */
+.hover-area-2:hover ~ .hover-area-1 img {
+    content: url("/Associated_files/IMG_2373_6.png") !important;
+}
+
+.hover-area-3:hover ~ .header-image {
+    content: url("/Associated_files/IMG_2373_5.png") !important;
+}
+
+/* When hovering over .hover-area-3, also update .hover-area-1 */
+.hover-area-3:hover ~ .hover-area-1 img {
+    content: url("/Associated_files/IMG_2373_7.png") !important;
+}
+
+/* Hover effect: Outline-only boxes */
+.hover-area:hover ~ .background-stripe {
+    background: repeating-linear-gradient(
+        to right,
+        black 0, black 1px, transparent 1px, transparent 2% /* Outline-only pattern */
+    );
+    height: 10px; /* Maintain height */
+    border: 1px solid black; /* Add an overall black border */
+}
+
+
+
+.artist_spotlight {
+    margin-top: 3.5vw;
+    display: flex;
+    flex-wrap: nowrap; /* Prevents wrapping unless on smaller screens */
+    flex-direction: row; /* Ensures side-by-side layout */
+    height: auto;
+    position: relative;
+    overflow: visible;
+    color: #ae9784;
+    margin-bottom: 3vw;
+    padding: 0 5vw;
+}
+
+.text {
+    font-family: myfont_4;
+    position: relative;
+    border-bottom: 1vw solid #8ea19d;
+    width: 100%; /* Matches the image width */
+    font-size: 5vw;
+    word-wrap: break-word; /* Prevents text overflow */
+    display: flex; /* Flex container for vertical alignment */
+    align-items: center; /* Center text vertically */
+}
+
+.about_section_3 {
+    display: flex;
+    flex-wrap: nowrap; /* Prevents wrapping unless on smaller screens */
+    flex-direction: row; /* Ensures side-by-side layout */
+    height: auto;
+    position: relative;
+    overflow: visible;
+    padding: 0 5vw;
+    margin-bottom: 5vw;
+}
+
+
+.text_3 {
+    font-family: myfont_4;
+    position: relative;
+    width: 100%; /* Matches the image width */
+    font-size: clamp(1rem, 2.5vw, 2.5rem); /* Scales text dynamically */
+    word-wrap: break-word; /* Prevents text overflow */
+    display: flex; /* Flex container for vertical alignment */
+    align-items: center; /* Center text vertically */
+}
+
+.stories-row {
+    display: flex;
+    width: 100% !important;
+    margin-top: 7%;
+    margin-bottom: 7%;
+}
+
+.story-item {
+    width: 30%; /* Adjusted width to allow for spacing */
+    margin: 1%; /* Creates a gap between items */
+    box-sizing: border-box; /* Ensures padding and border don't affect width */
+    text-align: left;
+}
+
+.stories-row {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap to the next line */
+    justify-content: space-between; /* Even spacing between items */
+}
+
+.story-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.story-item a {
+    text-decoration: none;
+    font-family: myfont;
+}
+
+.story-item a h3 {
+    font-size: 6vw !important;
+    margin-top: 10px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.social_media {
+    display: flex; /* Use flexbox to place items side by side */
+    justify-content: center; /* Center both items horizontally in the container */
+    align-items: center; /* Align items vertically */
+    gap: 10px; /* Add space between the images */
+    width: 100%; /* Make the parent container full width */
+}
+
+.facebook,
+.instagram {
+    width: 7%; /* Set the size of each container */
+    height: auto; /* Adjust height dynamically */
+    display: flex; /* Enable flexbox for internal alignment */
+    justify-content: center; /* Center the image inside each container */
+    align-items: center; /* Center the image vertically */
+    padding: 2vw;
+}
+
+.facebook img,
+.instagram img {
+    max-width: 100%; /* Ensure images fit inside their containers */
+    height: auto; /* Maintain aspect ratio */
+}
+
