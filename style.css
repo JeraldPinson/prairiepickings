@@ -70,14 +70,12 @@
 
 .stories-row {
     display: flex;
-    width: 100% !important;
-    margin-top: 7%;
-    margin-bottom: 7%;
+    flex-direction: column;
+    gap: 100%;
 }
 
 .story-item {
     width: 100% !important;
-    text-align: left;
 }
 
 .story-item img {
@@ -92,7 +90,7 @@
 }
 
 .story-item a h3 {
-    font-size: 6vw !important;
+    font-size: 4vw !important;
     margin-top: 10px;
     color: #000000;
     text-decoration: none;
