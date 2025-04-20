@@ -70,12 +70,19 @@
 
 .stories-row {
     display: flex;
-    flex-direction: column;
-    gap: 100%;
+    flex-wrap: wrap;              /* This is key */
+    justify-content: space-between;
+    gap: 2%;                      /* Optional: space between columns */
+    margin-top: 7%;
+    margin-bottom: 7%;
 }
 
+
+
 .story-item {
-    width: 100% !important;
+    flex: 0 0 32%;
+    box-sizing: border-box;       /* Prevent padding/margin from blowing it up */
+    margin-bottom: 3vw;
 }
 
 .story-item img {
@@ -289,6 +296,7 @@ body {
 
 .stories-row {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 7%;
     margin-bottom: 7%;
@@ -351,9 +359,11 @@ body {
 }
 
 .story-item {
-    width: 30%;
+    width: 30%;                /* Roughly one-third with room for gap */
+    margin-bottom: 3vw;        /* Optional: space between rows */
     text-align: left;
 }
+
 
 .story-item img {
     width: 100%;
