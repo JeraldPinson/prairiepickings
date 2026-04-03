@@ -345,7 +345,7 @@ body, section, div {
 /* Article Body */
 .article-body {
     font-family: myfont_4;
-    font-size: 1.5rem;    /* Body text size */
+    font-size: 1.2rem;    /* Body text size */
     /*font-weight: 200;*/
     width: 55vw;           /* Text takes up 45% of the screen */
     margin: 0 auto;       /* Center the body content */
@@ -401,7 +401,7 @@ body, section, div {
 
 .image-caption {
     text-align: left; /* Align the caption to the left */
-    font-size: 0.9rem; /* Adjust the font size */
+    font-size: 1rem; /* Adjust the font size */
     margin-top: 5px; /* Space between the image and caption */
     color: #555; /* Optional color adjustment */
     padding-bottom: 4rem;
