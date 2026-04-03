@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prairie Picking</title>
+    <link rel="stylesheet" href="3_Trap.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
+</head>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // find in-text footnote links - either with class or by href pattern
+  const links = Array.from(document.querySelectorAll('a.footnote-ref, a[href^="#footnote"]'));
+
+  // helper to close all popups
+  function closeAll() {
+    document.querySelectorAll('.footnote-content.show').forEach(el => {
+      el.classList.remove('show');
+      el.style.top = '';
+      el.style.left = '';
+    });
+  }
+
+  // clicking a footnote reference
+  links.forEach(link => {
+    link.addEventListener('click', (ev) => {
+      ev.preventDefault(); // prevents hash navigation (no jump)
+      ev.stopPropagation();
+
+      const href = link.getAttribute('href');
+      if (!href || !href.startsWith('#')) return;
+      const id = href.slice(1);
+      const popup = document.getElementById(id);
+      if (!popup) return;
+
+      // If already open -> close it
+      const isOpen = popup.classList.contains('show');
+      closeAll();
+      if (isOpen) return;
+
+      // compute position near the link (viewport coords)
+      const rect = link.getBoundingClientRect();
+      const popupRectApprox = { width: 320, height: 160 }; // fallback sizes
+      // if popup already in DOM and visible once, we can measure it:
+      popup.style.display = 'block';
+      const measured = popup.getBoundingClientRect();
+      if (measured.width && measured.height) {
+        popupRectApprox.width = measured.width;
+        popupRectApprox.height = measured.height;
+      }
+      // hide again until we add the .show class
+      popup.style.display = '';
+
+      // prefer placing below the ref; if not enough space, place above
+      const offset = 8; // pixels gap
+      let top = rect.bottom + offset; // below reference
+      const fitsBelow = (top + popupRectApprox.height) <= window.innerHeight;
+      if (!fitsBelow) {
+        // place above
+        top = rect.top - popupRectApprox.height - offset;
+        // if still negative, clamp to 10px
+        if (top < 10) top = 10;
+      }
+
+      // center popup horizontally near the reference (but keep within viewport)
+      let left = rect.left + (rect.width/2) - (popupRectApprox.width/2);
+      if (left < 8) left = 8;
+      if (left + popupRectApprox.width > window.innerWidth - 8) {
+        left = window.innerWidth - popupRectApprox.width - 8;
+      }
+
+      // apply position and show
+      popup.style.position = 'fixed';
+      popup.style.top = Math.round(top) + 'px';
+      popup.style.left = Math.round(left) + 'px';
+      popup.classList.add('show');
+
+      // small tweak for arrow: if we placed above, flip arrow CSS if you use one (optional)
+      // store current open popup for later checks
+    });
+  });
+
+  // Close popup when clicking outside
+  document.addEventListener('click', (ev) => {
+    if (!ev.target.closest('.footnote-content') && !ev.target.closest('a[href^="#footnote"]') && !ev.target.closest('a.footnote-ref')) {
+      closeAll();
+    }
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', (ev) => {
+    if (ev.key === 'Escape' || ev.key === 'Esc') {
+      closeAll();
+    }
+  });
+
+  // Reposition or close popups on resize/scroll so they don't end up in weird positions
+  window.addEventListener('resize', closeAll);
+  window.addEventListener('scroll', () => {
+    // if you want popups to follow the reference while scrolling, you could reposition here.
+    // for simplicity we'll just close on scroll.
+    closeAll();
+  });
+});
+</script>
+
+<body>
+    <header id="header">
+        <div id="name">
+            <span><a href="http://www.prairiepickings.com">Prairie Pickings</a></span>
+        </div>
+        <div id="sub_header">
+            <span>Tales from the urban swamp</span>
+        </div>
+    </header>
+    <nav id="page_links">
+        <div class="desktop-header">
+            <a href="https://www.prairiepickings.com/about" class="hover-area hover-area-1"></a>
+            <a href="https://www.prairiepickings.com/newsletter" class="hover-area hover-area-2"></a>
+            <a href="https://www.prairiepickings.com/contact" class="hover-area hover-area-3"></a>
+            <div class="background-stripe"></div>
+            <img src="/Associated_files/IMG_2373_2.png" alt="Header Text" class="header-image">
+        </div>
+        <div class="mobile-header">
+            <a href="https://www.prairiepickings.com/about">
+                <img src="/Associated_files/IMG_2373_6.png" alt="About" class="mobile-header-image">
+            </a>
+            <a href="https://prairiepickingsgnv.substack.com/">
+                <img src="/Associated_files/IMG_2373_8.png" alt="Newsletter" class="mobile-header-image">
+            </a>
+            <a href="https://www.prairiepickings.com/contact">
+                <img src="/Associated_files/IMG_2373_10.png" alt="Contact" class="mobile-header-image">
+            </a>
+        </div>
+    </nav>
+    <section class="article-section">
+        <h1 class="article-title">The thing in itself is a trap — A Halloween tale of spiders, bats, wobbegongs, pelican eels, and charity scams</h1>
+
+    <section class="header_image_tier1">
+        <div class="header_image">
+            <img id="header_image" src="./Stories/Trap/Image 1.jpg" alt=""> 
+        </div>
+    </section>
+
+        <div class="article-body">
+            
+        <div class="section_three">
+            <figcaption class="image-caption">The pelican eel, <i>Eurypharynx pelecanoides</i>. From "<a href="https://www.biodiversitylibrary.org/bibliography/48521">Oceanic Ichthyology</a>" (1896)</figcaption>
+            
+            <p><p><br><br>
+            
+                “That which exists through itself is meaning.”<br>
+                
+                -From “Secrets of the Golden Flower” (1688/1692)<p><p><br><br>
+
+                <i>*Disclaimer: The events of this story occurred in Houston, not Gainesville. But hopefully it’s a fun romp all the same. </i><br><br>
+
+
+Cities are not friendly places for the naïve. I was reminded of this fact during a late afternoon walk I’d taken in the exceedingly urban neighborhood around my mother’s apartment, during which I was caught in the sticky web of a scam and wrapped in silk by spiders whose identity and intentions I questioned too late. <sup> <a id="ref0" href="#footnote0">Spoiler alert </a></sup>
+<p><p>
+
+I was walking alongside an artificial bayou on a path made of formed and hardened lime that had, in a previous life, drifted to the bottom of some nameless ocean<sup><a id="ref1" href="#footnote1">1</a></sup> and accreted into solid rock, like someone with a bad case of dandruff that accumulated into a sedimentary layer of skin. 
+<p><p>
+
+One thing people don’t often understand about rock is that it’s actually a wave, one with many crests and troughs that are somewhat pricklier and more enduring than those made by water. Rocks and rubble are its spray and foam, mountains its tsunamis, piedmonts its breakers. By this, we know that whatsoever is at a trough will eventually be carried to the parabolic crest, and thus some of the world’s earliest organic rocks are thrust up into the shape of mountains, in which form they are dissolved by the elements and washed back into a trough. 
+<p><p>
+
+The lime in the cement that I walked on had made its way from an ocean floor to the path at the base of my feet through a series of events that includes the rise of human civilization — in the ascendent now for so long — through its first use in masonry by some of the “earliest” peoples, through the industrial revolution and the expansion of cities. That made it a peculiarly interesting wave (having taken such a roundabout way of getting back to the sea, as it did). Yet it seemed so mundane, something to scuffle along, not pay any attention to. The scenery wasn’t particularly inviting: a small strip of trees running parallel to a ravine with open, grassy slopes set at a low angle of incidence. A noisy freeway lay just beyond the strip of trees, and middle-class houses lay on the opposite bank. One got the (accurate) impression that you could walk along this ditch for several miles and still find yourself firmly planted in the same suburban subsection of this bloated city. The possibility of a solitary walk in the wilderness is so small as to be non-existent within Houston’s 25-mile radius. The bayous offer a sheltering respite from the cacophony of humanity, but they are a constant reminder of human engineering, especially because they don’t have much use beyond funneling water in times of flood. Many are paved over with concrete, making them useless even to worms, and those covered in grass are regularly mowed, shorn of the wildflowers that would have grown there otherwise. Even their capacity to alleviate flooding leaves much to be desired, as I heard secondhand the next day when a septuagenarian bookseller related to me her memory of a moment in 2017, when Hurricane Harvey filled her house with water and forced her up onto the roof to yell and wave plaintively for help. <sup> <a id="ref0" href="#footnote2,3">2, 3</a></sup>
+<p><p>
+
+Still, everything looks beautiful when it’s dressed up in sunset. The air was infused with a vague sense of delight. The music in my ears was made of melodies mixed with memory that only I will ever hear. The sun used some of its limited supply of hydrogen to light my path and delivered it to me in person with only an eight-minute delay, the sort of delivery speed that corporate moguls would willingly break the backs and spirits of countless employees to achieve. And yet…there it was: sunlight, ready made and free. 
+<p><p>
+
+A rabbit with a ruddy burgundy stripe down its back (who was not at all afraid of me walking by within just a few feet of it) munched contentedly on a leaf. If you listened closely, you could still hear the echoes of old things that once lived here and the soft, enlivening background hum of decaying mulch. 
+<p><p>
+
+The trees were between me and the sun, so they were cloaked in a royal shade of blue that illuminated their dim features to my eyes. 
+<p><p>
+
+It was two days before Halloween, and the chilly breeze jostled a hive of memories that buzzed around my head, one or two occasionally catching my attention.
+<p><p>
+
+I saw the path’s ending up ahead. 
+<p><p>
+
+There was nothing between me and the sometimes five, sometimes six-lane highway now, and only the highway lay between me and the strip malls that stretched to the horizon. 
+<p><p>
+
+“So much for the respite,” I muttered unconsciously. <sup><a id="ref4" href="#footnote4">4</a></sup> 
+<p><p>
+
+Streetlights usurped the stars, and I was aware of the deprivation. I was aware of the deep social ambiguity of the city, with its impersonal cars, mechanical noises, listless faces. I was aware of the expectation that I purchase something to exist in this space among the parking lots and the sliding doors made of glass that appear visually less substantial than the reflected glint off something opaque. 
+<p><p>
+
+But the sunset still lit up the place. Those walking around beyond the storefronts’ shade wore halos of sunlight on their hair, which called forth a similar wave of emotional radiance from within me, like an electric streamer moving upward toward a searching bolt of energy and connecting in a thunderous discharge. I felt an ancient bond between myself and these strangers, one that stretched back beyond our living memory — the bond between beings who find themselves strangely awake while traveling along a trail whose trodden path they cannot recall and and whose forward trajectory they are unable to predict.  
+<p><p>
+
+The light filtering through dyed plastic in the shape of letters and the contorted arrangement of neon atoms that spelled “open” were nearly as alluring to me as a porch light is disorienting to a moth. 
+<p><p>
+
+Walking beneath the eaves of the storefronts, I saw two people wearing matching uniforms sitting outside on the concrete in the narrow strait between a wall and a support beam. If I’d had my glasses on, I would have also seen the small card table they had set up behind them. I unthinkingly assumed that they are employees of said store sitting out front on their break. This worked to their benefit, because rather than walking out of my way to avoid them, as I might have done if I thought they were going to ask me to sign up for a recurring donation, I walked in their direction long enough for them to start beckoning me. 
+<p><p>
+
+It’s a curious thing. Bats have caught on to the fondness that moths and certain other nocturnal insects have for streetlights. To be more accurate, insects are not attracted to artificial light because it elicits some sort of misplaced desire. Rather, light disrupts the organic navigation system they use to find their way in the dark. On the average night, before humans started fooling around with electricity, the brightest thing around would have been the moon, stars and Milky Way. This has been a reliable fact for most of Earth’s history, and thus a reasonable evolutionary foundation on which to build a navigation system. At least a part of a moth’s ability to tell up from down is affected by learning that up is bright and down is dark. Then, less than 200 years ago, Homo sapiens started getting clever ideas about conductivity, and suddenly — after billions of years of darkness — the night sky is illuminated from the ground up. Chaos ensues in the venerable world of nocturnal insects as everything goes topsy turvy. Moths essentially think they’ve found a very tiny sun or other less luminous celestial body, and they try to keep it above them. They will fly in mad ellipses with their back facing the light, confused to as why reality has suddenly become strangely repetitive and nauseating. Anyone who’s cleaned out the glass cover on a porch light knows how this story ends. 
+<p><p>
+
+The alternate ending is in the mouth of a bat. So far as I know, biologists do not have a term for this particular type of interaction, in which one species secondarily benefits from the enticements of a foreign object (the light, in this case) that attracts another species whose life hangs in the balance. 
+<p><p>
+
+Despite its anonymity, however, this pattern is common in nature. Bats become the victims in cases where hawks sit perched outside the entry to their living space at dusk and wait for the first brave or foolish bat to emerge. Female crab spiders sit curled in the corolla of a flower, with skin the gaudy color of petals that make it invisible to the butterfly who’s stopping by for a fatal sip of nectar. <sup><a id="ref5" href="#footnote5">5</a></sup> Insect-eating birds that find a fresh patch of dung need only wait for the hordes of flies to arrive before eating dinner. 
+<p><p>
+    <div class="text-image-wrapper">
+    <img src="./Stories/Trap/Image 4.jpg" alt="" class="image_2">
+    <figcaption class="image-caption">Illustrations of various crab spiders, from "<a href="https://www.biodiversitylibrary.org/bibliography/122225">Monographia Aranearum</a>" (1820).</figcaption>
+    </div>
+    <p><p>
+
+And so having strayed too close to the seemingly harmless human extension of the plastered storefront, I was entrained in the sticky electrostatic goo of conversation, one that was — to me — of a particularly off-putting variety, with hyped-up, cheerleading, sales-pitch excitement. 
+<p><p>
+
+“Excuse me, sir. Do you care about kids,” one of them asked me. 
+<p><p>
+
+“Yes,” I replied. 
+<p><p>
+
+“That’s good! I would have been worried if you’d said otherwise,” she responded. It wasn’t exactly compelling, as far as sales pitches go, but it did adequately convey to me the fact that I was going to be asked for money. 
+<p><p>
+
+Disentangling oneself from this sort of trap is easy and can be contrived with a polite and curt dismissal. But I did not immediately realize I’d become ensnared, because I was ostensibly being given the opportunity to help starving children. This appealed to me, even if the presentation was too enthusiastic for my taste, and it introduced a second element of mimicry, called caudal luring, that many animals employ in their hunting strategies. 
+<p><p>
+    
+<div class="footnotes-container">
+  <div id="footnote0" class="footnote-content">
+    Nothing bad happened, and I am fine.
+  </div>
+
+  <div id="footnote1" class="footnote-content">
+No one was around to give anything names back then, so responses like “Mirovia” or “The Tethys Sea” are missing the point. <p><p>
+</div>
+
+  <div id="footnote2,3" class="footnote-content">
+2. As she recalled, two teenaged neighbors who owned a small paddle boat came to her rescue. 
+<p><p>
+
+3. This local, hole-in-the wall bookseller also incidentally provided me with the opening quote for this story. I went to the store twice, the first time self-restrainedly buying only two books. I went back the next day and indulged in five more. Among my prizes is a copy of “The Night Sky,” by Richard Grossinger, who attributes the quote to a mysterious “magus.” The truth isn’t that far off. 
+</div>
+
+<div id="footnote4" class="footnote-content">
+4. …or, so I assume. 
+</div>
+
+<div id="footnote5" class="footnote-content">
+5. In what may be the world’s first documented case of cooperative mimicry, the small males in one species of crab spider will crouch on top of the larger female’s back. The females resemble the flower’s petals, while the male mimics the flower’s reproductive organs.  
+</div>
+
+</div>
+
+
+
+
+
+    </div>
+    </div>
+    <div class="social_media">
+        <div class="instagram">
+            <a href="https://www.instagram.com/prairiepickingsgnv/">
+                <img src="/Associated_files/Instagram.png" alt="Instagram">
+            </a>
+        </div>
+        <div class="facebook">
+            <a href="https://www.facebook.com/people/Prairie-Pickings/61570125290231/">
+                <img src="/Associated_files/Facebook.png" alt="Facebook">
+            </a>
+        </div>
+    </div>
+    
+    </section>
+    
+   
+</body>
+</html>
+
