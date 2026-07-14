@@ -14,6 +14,38 @@
     src: url("/Associated_files/cheops elegant regular.ttf") format('woff');
 }
 
+.special-elite-regular {
+  font-family: "Special Elite", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.courier-prime-regular {
+  font-family: "Courier Prime", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.courier-prime-bold {
+  font-family: "Courier Prime", monospace;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.courier-prime-regular-italic {
+  font-family: "Courier Prime", monospace;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.courier-prime-bold-italic {
+  font-family: "Courier Prime", monospace;
+  font-weight: 700;
+  font-style: italic;
+}
+
+
+
 
 body {
     background-color: #fcf6f0 !important;
@@ -330,7 +362,7 @@ body, section, div {
 
 /* Title Styling */
 .article-title {
-    font-family: myfont;  /* Cheops Elegant font */
+    font-family: "special elite";  /* Cheops Elegant font */
     font-size: 3.5rem;      /* Large font size */
     margin-bottom: 1vh;  /* Space between title and subtitle */
 }
@@ -346,10 +378,11 @@ body, section, div {
 
 /* Article Body */
 .article-body {
-    font-family: myfont_4;
-    font-size: 1.5rem;    /* Body text size */
+    font-family: "Courier prime";
+    font-size: 1.1rem;    /* Body text size */
     /*font-weight: 200;*/
-    width: 55vw;           /* Text takes up 45% of the screen */
+    width: 50vw;           /* Text takes up 45% of the screen */
+    max-width: 100vh;
     margin: 0 auto;       /* Center the body content */
     text-align: left;     /* Align the text inside the article body to the left */
 }
@@ -376,7 +409,7 @@ body, section, div {
 }
 
 .subheading_one {
-    font-family: body_font;
+    font-family: "Courier Prime";
     font-size: 2rem;     /* Adjust the size as needed */
     font-weight: bold;   /* Make the text bold */
     text-align: left;    /* Align it to the left if required */
@@ -401,14 +434,14 @@ body, section, div {
 }
 
 .image_2 {
-    width: 100%; /* Make the image take the full width of the wrapper */
+    width: 80%; /* Make the image take the full width of the wrapper */
     display: block;
 }
 
 .image-caption {
     display: block;
     margin-top: 5px; /* Add spacing above the caption */
-    font-size: 0.9rem; /* Adjust font size */
+    font-size: 1rem; /* Adjust font size */
     color: #555; /* Optional: Adjust text color */
     text-align: left; /* Align the text to the left */
     max-width: 65%; /* Match the width of the image */
@@ -464,7 +497,7 @@ body, section, div {
     border: 1px solid black;
     border-radius: 4px;
     padding: 10px 14px;
-    font-family: myfont_4;
+    font-family: "Special Elite";
     font-size: 1rem;
     color: #333;
     box-shadow: 2px 2px 8px rgba(0,0,0,0.12);

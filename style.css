@@ -16,6 +16,7 @@
 
 .desktop-header {
     display: block;
+    justify-content: center;
 }
 
 .mobile-header {
@@ -68,22 +69,7 @@
     display: none;
 }
 
-.stories-row {
-    display: flex;
-    flex-wrap: wrap;              /* This is key */
-    justify-content: space-between;
-    gap: 2%;                      /* Optional: space between columns */
-    margin-top: 7%;
-    margin-bottom: 7%;
-}
 
-
-
-.story-item {
-    flex: 0 0 32%;
-    box-sizing: border-box;       /* Prevent padding/margin from blowing it up */
-    margin-bottom: 3vw;
-}
 
 .story-item img {
     width: 100%;
@@ -182,8 +168,9 @@ body {
 .background-stripe {
     position: absolute;
     top: 50%; /* Centered vertically */
-    transform: translateY(-50%);
-    width: 100%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    width: 80%;
     height: 10px; /* Maintain the original stripe thickness */
     background: linear-gradient(
         to right,
@@ -206,9 +193,11 @@ body {
 
 .header-image {
     position: relative;
-    z-index: 2; /* Above the background stripe */
-    max-width: 100%; /* Ensure it doesn’t overflow */
-    height: auto; /* Maintain aspect ratio */
+    z-index: 2;
+    max-width: 50%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
 .hover-container {
@@ -276,7 +265,7 @@ body {
 #footer_image {
     display: flex;
     margin: 0 auto;
-    width: 80%;
+    width: 50%;
     justify-content: center;
 }
 
@@ -428,3 +417,18 @@ body {
 
 
 
+.stories-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: flex-start !important;
+    gap: 0 5% !important;
+}
+
+.story-item {
+    width: 30% !important;
+    flex: 0 0 30% !important;
+}
+
+.story-item:last-child {
+    margin-right: auto !important;
+}
